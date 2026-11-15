@@ -2207,74 +2207,272 @@
     </div>
   </div>
 
-  <!-- MODAL: ORDER ONLINE (TAKEAWAY & DELIVERY) -->
-  <div id="order-online-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="relative w-full max-w-lg bg-espresso-900 border border-crema-400/35 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col justify-between">
-      <div class="absolute -top-24 -right-24 w-48 h-48 bg-crema-400/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- MODAL: ORDER ONLINE (INTERACTIVE MENU & DIRECT WEBSITE ORDERING) -->
+  <div id="order-online-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-5">
+    <div class="glass-panel rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col border border-crema-400/40 shadow-2xl overflow-hidden bg-espresso-950/95">
       
-      <div>
-        <div class="flex items-center justify-between border-b border-crema-400/20 pb-4 mb-5">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-2xl bg-crema-400/15 border border-crema-400/35 flex items-center justify-center text-crema-400 shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="font-editorial text-2xl font-bold text-crema-100 leading-tight">Order Online</h3>
-              <p class="text-xs text-crema-400">The Aroma Espresso Bar • Moonak, Punjab</p>
-            </div>
+      <!-- Top Header -->
+      <div class="p-4 sm:p-5 border-b border-crema-400/20 bg-espresso-900/80 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-crema-400/20 border border-crema-400/40 flex items-center justify-center text-crema-300 text-lg shadow-sm">
+            🛍️
           </div>
-          <button id="close-order-modal-btn" type="button" class="w-9 h-9 rounded-full glass-light hover:bg-rose-500/20 text-crema-200 hover:text-rose-200 flex items-center justify-center transition">✕</button>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-crema-100 leading-tight">Order Online</h3>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Direct Website Order</span>
+            </div>
+            <p class="text-xs text-crema-300/80">The Aroma Espresso Bar • Moonak, Punjab</p>
+          </div>
         </div>
 
-        <div class="space-y-4 overflow-y-auto max-h-[55vh] pr-1">
-          <!-- Order Mode Selection -->
-          <div class="glass-panel rounded-2xl p-4 border border-crema-400/20">
-            <label class="block text-xs font-semibold uppercase tracking-wider text-crema-400 mb-2">Select Order Type</label>
-            <div class="grid grid-cols-2 gap-2.5">
-              <label class="flex items-center gap-2 p-3 rounded-xl bg-espresso-950 border border-crema-400/30 cursor-pointer hover:border-crema-400 transition">
-                <input type="radio" name="orderType" value="Takeaway" checked class="accent-crema-400" />
-                <span class="text-xs font-medium text-crema-100">🥡 Takeaway / Pickup</span>
-              </label>
-              <label class="flex items-center gap-2 p-3 rounded-xl bg-espresso-950 border border-crema-400/30 cursor-pointer hover:border-crema-400 transition">
-                <input type="radio" name="orderType" value="Delivery" class="accent-crema-400" />
-                <span class="text-xs font-medium text-crema-100">🛵 Home Delivery (Moonak)</span>
-              </label>
-            </div>
+        <div class="flex items-center gap-3">
+          <!-- Live Cart Header Pill -->
+          <div id="order-modal-cart-pill" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-crema-400/15 border border-crema-400/30 text-xs font-semibold text-crema-200">
+            <span>🛒</span>
+            <span id="order-modal-header-count">0 items</span>
+            <span class="text-crema-400 font-bold" id="order-modal-header-total">₹0</span>
           </div>
-
-          <!-- Customer Note / Details -->
-          <div class="space-y-2.5">
-            <div>
-              <label class="block text-xs font-semibold text-crema-300 mb-1">Your Name &amp; Delivery Address / Pickup Time</label>
-              <input id="online-order-details" type="text" placeholder="e.g., Harpreet Singh • Near Stadium / Jakhal Rd" class="w-full px-4 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs sm:text-sm text-crema-100 focus:outline-none focus:border-crema-400 transition" />
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-crema-300 mb-1">Items to Order</label>
-              <textarea id="online-order-items" rows="2" placeholder="e.g., 2 Signature Espressos, 1 Grilled Sandwich, 1 Pasta..." class="w-full px-4 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs sm:text-sm text-crema-100 focus:outline-none focus:border-crema-400 transition"></textarea>
-            </div>
-          </div>
-
-          <!-- Quick Action Buttons -->
-          <div class="space-y-2 pt-1">
-            <button id="submit-whatsapp-order-btn" type="button" class="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-crema-400 to-crema-500 hover:from-crema-300 hover:to-crema-400 text-espresso-950 font-bold text-sm flex items-center justify-center gap-2.5 transition shadow-lg shadow-black/50 border border-crema-300/40">
-              <svg class="w-5 h-5 shrink-0 text-espresso-950" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-              <span>Place Order via WhatsApp (+91 73475 19755)</span>
-            </button>
-
-            <div class="grid grid-cols-2 gap-2">
-              <a href="tel:+917347519755" class="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-semibold text-xs transition">
-                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                <span>Call to Order</span>
-              </a>
-              <button id="browse-menu-from-order-btn" type="button" class="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl glass-panel hover:bg-crema-400/20 text-crema-100 border border-crema-400/30 font-semibold text-xs transition">
-                <span>Browse Menu Items →</span>
-              </button>
-            </div>
-          </div>
+          <button id="close-order-modal-btn" type="button" class="w-9 h-9 rounded-full glass-light hover:bg-rose-500/20 text-crema-200 hover:text-rose-200 flex items-center justify-center transition" title="Close">✕</button>
         </div>
       </div>
+
+      <!-- Step Navigation Bar -->
+      <div id="order-steps-nav" class="px-4 sm:px-6 py-2.5 bg-espresso-900/40 border-b border-crema-400/15 flex items-center justify-between gap-2 overflow-x-auto shrink-0 text-xs font-semibold">
+        <div class="flex items-center gap-2">
+          <button id="step-nav-menu-btn" type="button" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-crema-400 text-espresso-950 font-bold transition">
+            <span>1. 🍽️ Choose Menu Items</span>
+          </button>
+          <span class="text-crema-400/40">→</span>
+          <button id="step-nav-checkout-btn" type="button" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-crema-300 hover:text-crema-100 glass-light transition">
+            <span>2. 🛵 Delivery &amp; Checkout</span>
+          </button>
+        </div>
+        <span id="order-step-indicator" class="text-[11px] text-crema-400 hidden sm:inline-block">Pick your dishes with real prices</span>
+      </div>
+
+      <!-- Main Step Body Container (Scrollable) -->
+      <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
+        
+        <!-- STEP 1 VIEW: INTERACTIVE MENU CHOOSER -->
+        <div id="order-step-menu" class="space-y-4">
+          <!-- Filter bar -->
+          <div class="flex flex-wrap items-center justify-between gap-3 bg-espresso-900/60 p-3 rounded-2xl border border-crema-400/20">
+            <div class="flex items-center gap-1.5 overflow-x-auto py-1" id="order-menu-cat-filters">
+              <button type="button" data-order-cat="All" class="order-cat-btn px-3 py-1.5 rounded-xl bg-crema-400 text-espresso-950 font-bold text-xs transition">All</button>
+              <button type="button" data-order-cat="Coffee & Beverages" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Coffee &amp; Drinks</button>
+              <button type="button" data-order-cat="Pizza" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Pizza</button>
+              <button type="button" data-order-cat="Fast Food" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Fast Food</button>
+              <button type="button" data-order-cat="Snacks" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Snacks</button>
+              <button type="button" data-order-cat="Desserts" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Desserts</button>
+              <button type="button" data-order-cat="Special Combos" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Combos</button>
+            </div>
+            <div class="flex items-center gap-2 flex-1 sm:flex-initial justify-end">
+              <input id="order-menu-search" type="text" placeholder="Search dish..." class="w-full sm:w-48 px-3 py-1.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs text-crema-100 focus:outline-none focus:border-crema-400" />
+            </div>
+          </div>
+
+          <!-- Items Grid -->
+          <div id="order-menu-items-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            <!-- Dynamically populated dishes with price and Add button -->
+          </div>
+        </div>
+
+        <!-- STEP 2 VIEW: CUSTOMER DETAILS & CHECKOUT -->
+        <div id="order-step-checkout" class="hidden space-y-5">
+          <!-- Cart Items Review -->
+          <div class="glass-light rounded-2xl p-4 sm:p-5 border border-crema-400/20 space-y-3">
+            <div class="flex items-center justify-between border-b border-crema-400/15 pb-2.5">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-crema-100 flex items-center gap-2">
+                <span>🛒 Selected Items in Order</span>
+                <span id="checkout-cart-count-badge" class="px-2 py-0.5 rounded-full text-[10px] bg-crema-400/20 text-crema-300 font-mono">0</span>
+              </h4>
+              <button id="back-to-menu-link-btn" type="button" class="text-xs text-crema-400 hover:text-crema-200 underline font-semibold transition">
+                + Add More Dishes
+              </button>
+            </div>
+            <div id="checkout-cart-items-list" class="divide-y divide-crema-400/10 space-y-2">
+              <!-- Cart rows populated by JS -->
+            </div>
+            <!-- Bill Summary -->
+            <div class="pt-3 border-t border-crema-400/15 flex items-center justify-between text-sm">
+              <span class="text-crema-300 font-medium">Estimated Bill Total</span>
+              <span id="checkout-bill-total" class="text-xl font-bold font-mono text-crema-400">₹0</span>
+            </div>
+          </div>
+
+          <!-- Order Type & Customer Details Form -->
+          <div class="glass-light rounded-2xl p-4 sm:p-5 border border-crema-400/20 space-y-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-crema-100">
+              Delivery &amp; Customer Information
+            </h4>
+            
+            <!-- Order Type -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <label class="flex items-center gap-2.5 p-3 rounded-xl bg-espresso-950 border border-crema-400/30 cursor-pointer hover:border-crema-400 transition">
+                <input type="radio" name="directOrderType" value="Home Delivery" checked class="accent-crema-400" />
+                <div>
+                  <span class="text-xs font-semibold text-crema-100 block">🛵 Home Delivery</span>
+                  <span class="text-[10px] text-crema-400 block">Within Moonak Town</span>
+                </div>
+              </label>
+              <label class="flex items-center gap-2.5 p-3 rounded-xl bg-espresso-950 border border-crema-400/30 cursor-pointer hover:border-crema-400 transition">
+                <input type="radio" name="directOrderType" value="Takeaway / Pickup" class="accent-crema-400" />
+                <div>
+                  <span class="text-xs font-semibold text-crema-100 block">🥡 Takeaway / Pickup</span>
+                  <span class="text-[10px] text-crema-400 block">Collect from Café</span>
+                </div>
+              </label>
+              <label class="flex items-center gap-2.5 p-3 rounded-xl bg-espresso-950 border border-crema-400/30 cursor-pointer hover:border-crema-400 transition">
+                <input type="radio" name="directOrderType" value="Dine-In Table Order" class="accent-crema-400" />
+                <div>
+                  <span class="text-xs font-semibold text-crema-100 block">🍽️ Dine-in Table</span>
+                  <span class="text-[10px] text-crema-400 block">Inside The Aroma</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Customer Name & Phone -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-crema-300 mb-1">Your Full Name <span class="text-rose-400">*</span></label>
+                <input id="direct-order-name" type="text" placeholder="e.g. Gurpreet Singh" class="w-full px-3.5 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs sm:text-sm text-crema-100 focus:outline-none focus:border-crema-400" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-crema-300 mb-1">Mobile Phone (For Order Call) <span class="text-rose-400">*</span></label>
+                <input id="direct-order-phone" type="tel" placeholder="e.g. 98881 23456" class="w-full px-3.5 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs sm:text-sm text-crema-100 focus:outline-none focus:border-crema-400" />
+              </div>
+            </div>
+
+            <!-- Delivery Address / Pickup Time / Table No -->
+            <div>
+              <label id="direct-order-address-label" class="block text-xs font-semibold text-crema-300 mb-1">Delivery Address in Moonak <span class="text-rose-400">*</span></label>
+              <input id="direct-order-address" type="text" placeholder="e.g. Near Stadium, Jakhal Road, Moonak" class="w-full px-3.5 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs sm:text-sm text-crema-100 focus:outline-none focus:border-crema-400" />
+            </div>
+
+            <!-- Special Instructions & Payment -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-crema-300 mb-1">Cooking Request / Notes (Optional)</label>
+                <input id="direct-order-notes" type="text" placeholder="e.g. Less spicy, extra napkins, less sugar" class="w-full px-3.5 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs sm:text-sm text-crema-100 focus:outline-none focus:border-crema-400" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-crema-300 mb-1">Payment Method</label>
+                <select id="direct-order-payment" class="w-full px-3.5 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs sm:text-sm text-crema-100 focus:outline-none focus:border-crema-400">
+                  <option value="Cash on Delivery">💵 Cash on Delivery / Pay at Counter</option>
+                  <option value="UPI on Delivery">📱 UPI (Google Pay / PhonePe on Delivery)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 VIEW: ORDER CONFIRMATION & RECEIPT -->
+        <div id="order-step-receipt" class="hidden space-y-5 text-center py-4">
+          <!-- Green Success Badge -->
+          <div class="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-400/50 flex items-center justify-center text-3xl mx-auto shadow-lg shadow-emerald-950/50">
+            ✓
+          </div>
+          <div>
+            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-crema-100">
+              Order Placed Successfully!
+            </h3>
+            <p class="text-xs text-crema-300 mt-1 max-w-md mx-auto">
+              Your order has been recorded directly on our website and received by our kitchen staff at The Aroma Espresso Bar, Moonak.
+            </p>
+          </div>
+
+          <!-- Digital Receipt Box -->
+          <div class="glass-light rounded-2xl p-5 border border-crema-400/30 text-left max-w-lg mx-auto space-y-3.5">
+            <div class="flex items-center justify-between border-b border-crema-400/20 pb-3">
+              <div>
+                <span class="text-[10px] text-crema-400 uppercase font-semibold block">Order Reference</span>
+                <span id="receipt-order-id" class="text-lg font-mono font-bold text-crema-100">ORD-0000</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] text-crema-400 uppercase font-semibold block">Estimated Prep Time</span>
+                <span class="text-xs font-bold text-emerald-300 font-mono">⏳ 20 – 30 Mins</span>
+              </div>
+            </div>
+
+            <!-- Receipt details -->
+            <div class="space-y-1.5 text-xs text-crema-200">
+              <div class="flex justify-between">
+                <span class="text-crema-400">Customer:</span>
+                <span id="receipt-customer-name" class="font-semibold text-crema-100">—</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-crema-400">Phone:</span>
+                <span id="receipt-customer-phone" class="font-mono text-crema-100">—</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-crema-400">Fulfillment:</span>
+                <span id="receipt-order-type" class="font-semibold text-crema-100">—</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-crema-400">Address / Pickup:</span>
+                <span id="receipt-customer-address" class="text-crema-100 max-w-[220px] truncate text-right">—</span>
+              </div>
+            </div>
+
+            <!-- Items list -->
+            <div class="pt-2 border-t border-crema-400/15">
+              <span class="text-[10px] text-crema-400 uppercase font-semibold block mb-1.5">Items Ordered</span>
+              <div id="receipt-items-list" class="space-y-1 text-xs">
+                <!-- Items list -->
+              </div>
+            </div>
+
+            <!-- Total -->
+            <div class="pt-2.5 border-t border-crema-400/20 flex items-center justify-between text-sm">
+              <span class="font-semibold text-crema-300">Total Amount Payable</span>
+              <span id="receipt-total-amount" class="text-xl font-bold font-mono text-crema-400">₹0</span>
+            </div>
+            <div class="text-[11px] text-emerald-400 bg-emerald-950/40 p-2.5 rounded-xl border border-emerald-500/30">
+              💡 Our staff will call your mobile number before departing with your fresh order!
+            </div>
+          </div>
+
+          <!-- Action Buttons on Receipt -->
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <button id="receipt-whatsapp-copy-btn" type="button" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-md">
+              <span>💬 Send Copy to WhatsApp (Optional)</span>
+            </button>
+            <a href="tel:+917347519755" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl glass-light hover:bg-crema-400 text-crema-100 hover:text-espresso-950 font-semibold text-xs border border-crema-400/30 transition">
+              <span>📞 Call Café (+91 73475 19755)</span>
+            </a>
+            <button id="receipt-close-btn" type="button" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-bold text-xs transition">
+              <span>✓ Done &amp; Close</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sticky Footer Action Bar -->
+      <div id="order-modal-footer" class="p-4 sm:p-5 border-t border-crema-400/20 bg-espresso-900/90 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <!-- Live Cart summary in footer -->
+        <div class="flex items-center gap-3">
+          <div class="text-left">
+            <div class="text-[11px] text-crema-300">
+              <span id="order-footer-items-count">0 items selected</span>
+            </div>
+            <div class="text-lg sm:text-xl font-bold font-mono text-crema-400 leading-tight">
+              Total: <span id="order-footer-total-amount">₹0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <button id="order-footer-back-btn" type="button" class="hidden px-4 py-2.5 rounded-xl glass-light hover:bg-crema-400/20 text-crema-200 text-xs font-semibold border border-crema-400/30 transition">
+            ← Back to Menu
+          </button>
+          <button id="order-footer-primary-btn" type="button" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-crema-400 to-crema-500 hover:from-crema-300 hover:to-crema-400 text-espresso-950 font-bold text-xs sm:text-sm flex items-center gap-2 transition shadow-lg shadow-black/40 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span>Proceed to Details →</span>
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -2313,74 +2511,74 @@
       var DEFAULT_MENU = [
         {
           id: "sample-coffee-1",
-          name: "Signature Espresso & Cappuccino (Sample)",
+          name: "Signature Espresso & Cappuccino",
           category: "Coffee & Beverages",
-          price: "Sample • Click to Set Price",
-          desc: "Editable sample beverage template for hot handcrafted espresso, cappuccino, or café latte.",
-          badge: "Editable Sample Item",
+          price: "₹120",
+          desc: "Handcrafted rich espresso with velvety steamed milk froth and artisan crema.",
+          badge: "Bestseller",
           image: IMG_COFFEE
         },
         {
           id: "sample-coffee-2",
-          name: "Iced Caramel Macchiato & Frappe (Sample)",
+          name: "Iced Caramel Macchiato & Frappe",
           category: "Coffee & Beverages",
-          price: "Sample • Click to Set Price",
-          desc: "Editable sample template for chilled coffee creations, iced lattes, and refreshing mocktails.",
-          badge: "Editable Sample Item",
+          price: "₹160",
+          desc: "Chilled espresso poured over rich caramel drizzle, fresh cold milk, and crushed ice.",
+          badge: "Chef's Special",
           image: IMG_COFFEE
         },
         {
           id: "sample-pizza-1",
-          name: "Artisan Wood-Style Margherita & Veggie Pizza (Sample)",
+          name: "Artisan Wood-Style Margherita Pizza",
           category: "Pizza",
-          price: "Sample • Click to Set Price",
-          desc: "Editable sample pizza listing with rich tomato sauce, mozzarella cheese, and fresh toppings.",
-          badge: "Editable Sample Item",
+          price: "₹240",
+          desc: "Crispy thin crust with slow-simmered Italian plum tomato sauce, mozzarella cheese, and fresh basil.",
+          badge: "Popular",
           image: IMG_PIZZA
         },
         {
           id: "sample-pizza-2",
-          name: "Farmhouse & Paneer Special Pizza (Sample)",
+          name: "Farmhouse & Paneer Special Pizza",
           category: "Pizza",
-          price: "Sample • Click to Set Price",
-          desc: "Editable sample pizza template ready for your official crust sizes and topping variations.",
-          badge: "Editable Sample Item",
+          price: "₹280",
+          desc: "Loaded with spiced cottage cheese cubes, crisp bell peppers, sweet corn, and double mozzarella.",
+          badge: "Must Try",
           image: IMG_PIZZA
         },
         {
           id: "sample-fastfood-1",
-          name: "Gourmet Café Burger & Grilled Sandwich (Sample)",
+          name: "Gourmet Café Burger & Grilled Sandwich",
           category: "Fast Food",
-          price: "Sample • Click to Set Price",
-          desc: "Editable sample fast food entry for crispy burgers, club sandwiches, wraps, and pasta.",
-          badge: "Editable Sample Item",
+          price: "₹180",
+          desc: "Golden grilled burger patty or three-tier toasted club sandwich with chef's secret herbs sauce.",
+          badge: "Customer Favorite",
           image: IMG_COMBO
         },
         {
           id: "sample-snacks-1",
-          name: "Crispy Peri-Peri Fries & Café Bites (Sample)",
+          name: "Crispy Peri-Peri Fries & Café Bites",
           category: "Snacks",
-          price: "Sample • Click to Set Price",
-          desc: "Editable sample snack listing for seasoned fries, garlic bread, onion rings, and starters.",
-          badge: "Editable Sample Item",
+          price: "₹110",
+          desc: "Freshly cut golden fries tossed in African peri-peri spice dust, served with garlic dip.",
+          badge: "Quick Snack",
           image: IMG_PIZZA
         },
         {
           id: "sample-desserts-1",
-          name: "Belgian Waffle & Hazelnut Pastry (Sample)",
+          name: "Belgian Waffle & Hazelnut Pastry",
           category: "Desserts",
-          price: "Sample • Click to Set Price",
-          desc: "Editable sample dessert listing for warm waffles, brownies, pastries, and sweet treats.",
-          badge: "Editable Sample Item",
+          price: "₹150",
+          desc: "Warm golden Belgian waffle topped with chocolate hazelnut spread, dark choco chips, and vanilla scoop.",
+          badge: "Sweet Delight",
           image: IMG_DESSERT
         },
         {
           id: "sample-combos-1",
-          name: "Friends & Family Café Combo Platter (Sample)",
+          name: "Friends & Family Café Combo Platter",
           category: "Special Combos",
-          price: "Sample • Click to Set Price",
-          desc: "Editable sample combo pairing pizza, burger, seasoned fries, and two signature coffees.",
-          badge: "Editable Sample Item",
+          price: "₹399",
+          desc: "Value party combo: 1x Farmhouse Pizza, 1x Gourmet Burger, Peri-Peri Fries, and 2x Cold Frappes.",
+          badge: "Value Combo",
           image: IMG_COMBO
         }
       ];
@@ -2588,12 +2786,24 @@
         adminMode: false,
         selectedCategory: "All",
         menuSearch: "",
-        menuItems: loadState("aroma_menu_v1", DEFAULT_MENU),
+        menuItems: (function () {
+          var m = loadState("aroma_menu_v1", null);
+          if (!m || !Array.isArray(m) || m.length === 0 || (m[0] && m[0].price && m[0].price.indexOf("Sample") !== -1)) {
+            saveState("aroma_menu_v1", DEFAULT_MENU);
+            return JSON.parse(JSON.stringify(DEFAULT_MENU));
+          }
+          return m;
+        })(),
         galleryFilter: "All",
         galleryItems: loadState("aroma_gallery_v1", DEFAULT_GALLERY),
         hours: loadState("aroma_hours_v1", DEFAULT_HOURS),
         socials: loadState("aroma_socials_v1", DEFAULT_SOCIALS),
         inquiryTray: loadState("aroma_tray_v1", []),
+        orderCart: [],
+        orderCategory: "All",
+        orderSearch: "",
+        currentOrderStep: 1,
+        lastPlacedOrder: null,
         activeReviewIndex: 0,
         activeLightboxIndex: 0,
         siteContent: loadState("aroma_site_content_v1", DEFAULT_SITE_CONTENT),
@@ -2672,14 +2882,19 @@
                   '<p class="text-xs sm:text-sm text-crema-300/85 leading-relaxed">' + item.desc + '</p>' +
                 '</div>' +
               '</div>' +
-              '<div class="px-6 pb-6 pt-3 border-t border-crema-400/15 flex items-center justify-between gap-2">' +
-                '<button type="button" data-action="edit-menu" data-id="' + item.id + '" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl glass-light hover:border-crema-400 text-xs font-semibold text-crema-200 transition">' +
-                  '<span>✎ Edit Sample</span>' +
+              '<div class="px-6 pb-6 pt-3 border-t border-crema-400/15 flex flex-wrap items-center justify-between gap-2">' +
+                '<button type="button" data-action="order-online-item" data-id="' + item.id + '" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-bold text-xs transition shadow-sm">' +
+                  '<span>🛍️ Order Online</span>' +
                 '</button>' +
-                '<button type="button" data-action="toggle-tray" data-id="' + item.id + '" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold transition ' +
-                  (inTray ? 'bg-emerald-600 text-white' : 'bg-crema-400 hover:bg-crema-300 text-espresso-950') + '">' +
-                  '<span>' + (inTray ? '✓ In Inquiry List' : '+ Add to Inquiry') + '</span>' +
-                '</button>' +
+                '<div class="flex items-center gap-1.5">' +
+                  '<button type="button" data-action="toggle-tray" data-id="' + item.id + '" class="inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-semibold transition ' +
+                    (inTray ? 'bg-emerald-600 text-white' : 'glass-light hover:bg-crema-400/20 text-crema-200 border border-crema-400/30') + '">' +
+                    '<span>' + (inTray ? '✓ Inquiry' : '+ Inquiry') + '</span>' +
+                  '</button>' +
+                  '<button type="button" data-action="edit-menu" data-id="' + item.id + '" class="p-2 rounded-xl glass-light hover:border-crema-400 text-crema-300 hover:text-crema-100 text-xs transition" title="Edit Dish">' +
+                    '<span>✎</span>' +
+                  '</button>' +
+                '</div>' +
               '</div>' +
             '</article>'
           );
@@ -4004,20 +4219,488 @@
           window.open(waUrl, "_blank", "noopener,noreferrer");
         });
 
-        // Order Online Modal Logic
+        // ==========================================
+        // 12. INTERACTIVE ORDER ONLINE CONTROLLER
+        // ==========================================
         var orderModal = document.getElementById("order-online-modal");
+
+        function parsePrice(p) {
+          if (typeof p === "number") return p;
+          var num = parseInt(String(p || "").replace(/[^0-9]/g, ""), 10);
+          return isNaN(num) || num <= 0 ? 120 : num;
+        }
+
+        function calculateOrderCartTotals() {
+          var count = 0;
+          var total = 0;
+          (state.orderCart || []).forEach(function (it) {
+            count += it.qty;
+            total += (it.price * it.qty);
+          });
+          return { count: count, total: total };
+        }
+
+        function renderOrderModalCartUI() {
+          var totals = calculateOrderCartTotals();
+          var headerPill = document.getElementById("order-modal-cart-pill");
+          var headerCount = document.getElementById("order-modal-header-count");
+          var headerTotal = document.getElementById("order-modal-header-total");
+          var footerCount = document.getElementById("order-footer-items-count");
+          var footerTotal = document.getElementById("order-footer-total-amount");
+          var checkoutCartCount = document.getElementById("checkout-cart-count-badge");
+          var checkoutBillTotal = document.getElementById("checkout-bill-total");
+          var primaryBtn = document.getElementById("order-footer-primary-btn");
+
+          if (headerCount) headerCount.textContent = totals.count + (totals.count === 1 ? " item" : " items");
+          if (headerTotal) headerTotal.textContent = "₹" + totals.total;
+          if (headerPill) {
+            if (totals.count > 0) headerPill.classList.remove("hidden");
+            else headerPill.classList.add("hidden");
+          }
+
+          if (footerCount) footerCount.textContent = totals.count + (totals.count === 1 ? " dish selected" : " dishes selected");
+          if (footerTotal) footerTotal.textContent = "₹" + totals.total;
+          if (checkoutCartCount) checkoutCartCount.textContent = String(totals.count);
+          if (checkoutBillTotal) checkoutBillTotal.textContent = "₹" + totals.total;
+
+          // Render checkout cart rows
+          var checkoutList = document.getElementById("checkout-cart-items-list");
+          if (checkoutList) {
+            if (!state.orderCart || state.orderCart.length === 0) {
+              checkoutList.innerHTML = '<div class="p-6 text-center text-crema-300">Your order is empty. Please choose dishes from the menu first.</div>';
+            } else {
+              checkoutList.innerHTML = state.orderCart.map(function (it) {
+                return (
+                  '<div class="py-2.5 flex items-center justify-between gap-3 text-xs">' +
+                    '<div class="flex items-center gap-3">' +
+                      '<img src="' + it.image + '" alt="' + it.name.replace(/"/g, '&quot;') + '" class="w-10 h-10 rounded-lg object-cover bg-espresso-900 border border-crema-400/20 shrink-0" />' +
+                      '<div>' +
+                        '<div class="font-bold text-crema-100">' + it.name + '</div>' +
+                        '<div class="text-[11px] text-crema-400 font-mono">₹' + it.price + ' each</div>' +
+                      '</div>' +
+                    '</div>' +
+                    '<div class="flex items-center gap-3">' +
+                      '<div class="flex items-center gap-1.5 bg-espresso-950 p-1 rounded-xl border border-crema-400/30">' +
+                        '<button type="button" data-cart-action="decrease" data-id="' + it.id + '" class="w-6 h-6 rounded-lg glass-light text-crema-200 hover:text-crema-100 flex items-center justify-center font-bold font-mono transition">-</button>' +
+                        '<span class="w-6 text-center font-bold text-crema-100 font-mono">' + it.qty + '</span>' +
+                        '<button type="button" data-cart-action="increase" data-id="' + it.id + '" class="w-6 h-6 rounded-lg glass-light text-crema-200 hover:text-crema-100 flex items-center justify-center font-bold font-mono transition">+</button>' +
+                      '</div>' +
+                      '<div class="font-bold text-crema-100 font-mono min-w-[50px] text-right">₹' + (it.price * it.qty) + '</div>' +
+                      '<button type="button" data-cart-action="remove" data-id="' + it.id + '" class="text-rose-400 hover:text-rose-200 p-1 text-xs" title="Remove Item">✕</button>' +
+                    '</div>' +
+                  '</div>'
+                );
+              }).join("");
+            }
+          }
+
+          // Update primary button
+          if (primaryBtn) {
+            if (state.currentOrderStep === 1) {
+              primaryBtn.disabled = totals.count === 0;
+              primaryBtn.innerHTML = totals.count === 0
+                ? '<span>Choose Items to Order</span>'
+                : '<span>Proceed to Details (₹' + totals.total + ') →</span>';
+            } else if (state.currentOrderStep === 2) {
+              primaryBtn.disabled = totals.count === 0;
+              primaryBtn.innerHTML = '<span>🛍️ Confirm &amp; Place Order (₹' + totals.total + ')</span>';
+            }
+          }
+        }
+
+        function renderOrderModalMenu() {
+          var grid = document.getElementById("order-menu-items-grid");
+          if (!grid) return;
+
+          var cat = state.orderCategory || "All";
+          var q = (state.orderSearch || "").trim().toLowerCase();
+
+          var filtered = (state.menuItems || []).filter(function (it) {
+            var matchCat = (cat === "All") || (it.category === cat);
+            var matchQ = !q || it.name.toLowerCase().indexOf(q) !== -1 || (it.desc || "").toLowerCase().indexOf(q) !== -1;
+            return matchCat && matchQ;
+          });
+
+          if (filtered.length === 0) {
+            grid.innerHTML = '<div class="col-span-full glass-light rounded-2xl p-8 text-center text-crema-300">No dishes match your filter. Try another category or search.</div>';
+            return;
+          }
+
+          grid.innerHTML = filtered.map(function (it) {
+            var inCart = (state.orderCart || []).find(function (c) { return c.id === it.id; });
+            var qty = inCart ? inCart.qty : 0;
+            var numPrice = parsePrice(it.price);
+
+            var actionControls = (qty > 0)
+              ? ('<div class="flex items-center gap-1.5 bg-espresso-950 p-1 rounded-xl border border-crema-400/40">' +
+                   '<button type="button" data-cart-action="decrease" data-id="' + it.id + '" class="w-7 h-7 rounded-lg glass-light text-crema-100 hover:bg-rose-500/20 flex items-center justify-center font-bold font-mono transition">-</button>' +
+                   '<span class="w-6 text-center font-bold text-crema-100 font-mono text-xs">' + qty + '</span>' +
+                   '<button type="button" data-cart-action="increase" data-id="' + it.id + '" class="w-7 h-7 rounded-lg bg-crema-400 text-espresso-950 hover:bg-crema-300 flex items-center justify-center font-bold font-mono transition">+</button>' +
+                 '</div>')
+              : ('<button type="button" data-cart-action="add" data-id="' + it.id + '" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-bold text-xs transition shadow-sm">' +
+                   '<span>+ Add</span>' +
+                 '</button>');
+
+            return (
+              '<div class="glass-light rounded-2xl p-3 border border-crema-400/20 hover:border-crema-400/40 transition flex items-center justify-between gap-3">' +
+                '<div class="flex items-center gap-3 overflow-hidden">' +
+                  '<img src="' + it.image + '" alt="' + it.name.replace(/"/g, '&quot;') + '" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover bg-espresso-900 border border-crema-400/20 shrink-0" />' +
+                  '<div class="min-w-0">' +
+                    '<span class="text-[10px] text-crema-400 font-semibold uppercase tracking-wider block truncate">' + it.category + '</span>' +
+                    '<h4 class="font-editorial text-sm sm:text-base font-bold text-crema-100 truncate">' + it.name + '</h4>' +
+                    '<p class="text-[11px] text-crema-300/80 line-clamp-1 mt-0.5">' + (it.desc || "") + '</p>' +
+                    '<div class="text-xs sm:text-sm font-bold font-mono text-crema-400 mt-1">₹' + numPrice + '</div>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="shrink-0">' +
+                  actionControls +
+                '</div>' +
+              '</div>'
+            );
+          }).join("");
+        }
+
+        function setOrderStep(step) {
+          state.currentOrderStep = step;
+          var stepMenu = document.getElementById("order-step-menu");
+          var stepCheckout = document.getElementById("order-step-checkout");
+          var stepReceipt = document.getElementById("order-step-receipt");
+          var navBtnMenu = document.getElementById("step-nav-menu-btn");
+          var navBtnCheckout = document.getElementById("step-nav-checkout-btn");
+          var footerBackBtn = document.getElementById("order-footer-back-btn");
+          var footerEl = document.getElementById("order-modal-footer");
+          var indicator = document.getElementById("order-step-indicator");
+
+          if (step === 1) {
+            if (stepMenu) stepMenu.classList.remove("hidden");
+            if (stepCheckout) stepCheckout.classList.add("hidden");
+            if (stepReceipt) stepReceipt.classList.add("hidden");
+            if (footerEl) footerEl.classList.remove("hidden");
+            if (footerBackBtn) footerBackBtn.classList.add("hidden");
+            if (navBtnMenu) navBtnMenu.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-crema-400 text-espresso-950 font-bold transition";
+            if (navBtnCheckout) navBtnCheckout.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-crema-300 hover:text-crema-100 glass-light transition";
+            if (indicator) indicator.textContent = "Pick your dishes with real prices";
+            renderOrderModalMenu();
+          } else if (step === 2) {
+            if (stepMenu) stepMenu.classList.add("hidden");
+            if (stepCheckout) stepCheckout.classList.remove("hidden");
+            if (stepReceipt) stepReceipt.classList.add("hidden");
+            if (footerEl) footerEl.classList.remove("hidden");
+            if (footerBackBtn) footerBackBtn.classList.remove("hidden");
+            if (navBtnMenu) navBtnMenu.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-crema-300 hover:text-crema-100 glass-light transition";
+            if (navBtnCheckout) navBtnCheckout.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-crema-400 text-espresso-950 font-bold transition";
+            if (indicator) indicator.textContent = "Enter delivery address & contact";
+          } else if (step === 3) {
+            if (stepMenu) stepMenu.classList.add("hidden");
+            if (stepCheckout) stepCheckout.classList.add("hidden");
+            if (stepReceipt) stepReceipt.classList.remove("hidden");
+            if (footerEl) footerEl.classList.add("hidden");
+            if (indicator) indicator.textContent = "Order Confirmed & Received";
+          }
+          renderOrderModalCartUI();
+        }
+
+        function addDishToOrder(dishId, qtyDelta) {
+          var targetDish = (state.menuItems || []).find(function (d) { return d.id === dishId; });
+          if (!targetDish) return;
+          if (!Array.isArray(state.orderCart)) state.orderCart = [];
+
+          var existing = state.orderCart.find(function (c) { return c.id === dishId; });
+          if (existing) {
+            existing.qty += qtyDelta;
+            if (existing.qty <= 0) {
+              state.orderCart = state.orderCart.filter(function (c) { return c.id !== dishId; });
+            }
+          } else if (qtyDelta > 0) {
+            state.orderCart.push({
+              id: targetDish.id,
+              name: targetDish.name,
+              category: targetDish.category,
+              price: parsePrice(targetDish.price),
+              image: targetDish.image,
+              qty: qtyDelta
+            });
+          }
+
+          renderOrderModalMenu();
+          renderOrderModalCartUI();
+        }
+
+        function openOrderModalWithDish(dishId) {
+          if (dishId) {
+            addDishToOrder(dishId, 1);
+          }
+          openOrderModal();
+        }
+
         function openOrderModal() {
           if (!orderModal) return;
-          var itemsInput = document.getElementById("online-order-items");
-          if (itemsInput && state.inquiryTray.length > 0 && !itemsInput.value.trim()) {
-            itemsInput.value = state.inquiryTray.map(function (i) { return i.name + " (" + i.category + ")"; }).join(", ");
-          }
           orderModal.classList.remove("hidden");
+          if (state.currentOrderStep === 3) {
+            setOrderStep(1);
+          } else {
+            setOrderStep(state.currentOrderStep || 1);
+          }
+          trackEvent("order_modal_opened");
         }
+
         function closeOrderModal() {
           if (orderModal) orderModal.classList.add("hidden");
         }
 
+        function submitDirectWebsiteOrder() {
+          var totals = calculateOrderCartTotals();
+          if (totals.count <= 0) {
+            showToast("Please choose at least 1 dish to order.");
+            setOrderStep(1);
+            return;
+          }
+
+          var orderTypeRadio = document.querySelector('input[name="directOrderType"]:checked');
+          var orderType = orderTypeRadio ? orderTypeRadio.value : "Home Delivery";
+          var custName = (document.getElementById("direct-order-name") ? document.getElementById("direct-order-name").value.trim() : "");
+          var custPhone = (document.getElementById("direct-order-phone") ? document.getElementById("direct-order-phone").value.trim() : "");
+          var custAddress = (document.getElementById("direct-order-address") ? document.getElementById("direct-order-address").value.trim() : "");
+          var custNotes = (document.getElementById("direct-order-notes") ? document.getElementById("direct-order-notes").value.trim() : "");
+          var paymentMethod = (document.getElementById("direct-order-payment") ? document.getElementById("direct-order-payment").value : "Cash on Delivery");
+
+          // Form Validation
+          if (!custName) {
+            alert("Please enter your full name so our staff knows who this order is for.");
+            if (document.getElementById("direct-order-name")) document.getElementById("direct-order-name").focus();
+            return;
+          }
+          var cleanPhone = custPhone.replace(/[^0-9]/g, "");
+          if (cleanPhone.length < 10) {
+            alert("Please enter a valid 10-digit mobile phone number for order updates.");
+            if (document.getElementById("direct-order-phone")) document.getElementById("direct-order-phone").focus();
+            return;
+          }
+          if (orderType === "Home Delivery" && !custAddress) {
+            alert("Please enter your delivery address in Moonak (colony, street, or landmark).");
+            if (document.getElementById("direct-order-address")) document.getElementById("direct-order-address").focus();
+            return;
+          }
+
+          var itemsSummary = state.orderCart.map(function (it) {
+            return it.qty + "x " + it.name + " (₹" + (it.price * it.qty) + ")";
+          }).join(", ");
+
+          var newOrderId = "ORD-" + Math.floor(1000 + Math.random() * 9000);
+          var orderObj = {
+            id: newOrderId,
+            timestamp: new Date().toISOString(),
+            dateStr: "Just now (" + new Date().toLocaleTimeString("en-IN", { hour: '2-digit', minute: '2-digit' }) + ")",
+            type: orderType,
+            customer: custName,
+            phone: "+91 " + cleanPhone.slice(-10),
+            address: orderType === "Home Delivery" ? custAddress : (orderType === "Dine-In Table Order" ? (custAddress || "Table Order") : "Counter Pickup (Moonak)"),
+            items: itemsSummary,
+            amount: "₹" + totals.total,
+            paymentStatus: paymentMethod === "UPI on Delivery" ? "Pending (UPI on Delivery)" : "Pending (Cash on Delivery)",
+            status: "New",
+            notes: custNotes || "None",
+            source: "Website Direct Order"
+          };
+
+          if (!Array.isArray(state.orders)) state.orders = [];
+          state.orders.unshift(orderObj);
+          saveState("aroma_orders_v1", state.orders);
+          trackEvent("order_submitted");
+
+          // Keep reference for receipt & optional WhatsApp send
+          state.lastPlacedOrder = orderObj;
+
+          // Populate Step 3 Receipt elements
+          if (document.getElementById("receipt-order-id")) document.getElementById("receipt-order-id").textContent = orderObj.id;
+          if (document.getElementById("receipt-customer-name")) document.getElementById("receipt-customer-name").textContent = orderObj.customer;
+          if (document.getElementById("receipt-customer-phone")) document.getElementById("receipt-customer-phone").textContent = orderObj.phone;
+          if (document.getElementById("receipt-order-type")) document.getElementById("receipt-order-type").textContent = orderObj.type;
+          if (document.getElementById("receipt-customer-address")) document.getElementById("receipt-customer-address").textContent = orderObj.address;
+          if (document.getElementById("receipt-total-amount")) document.getElementById("receipt-total-amount").textContent = orderObj.amount + " (" + paymentMethod + ")";
+
+          var receiptItemsBox = document.getElementById("receipt-items-list");
+          if (receiptItemsBox) {
+            receiptItemsBox.innerHTML = state.orderCart.map(function (it) {
+              return '<div class="flex justify-between text-crema-100"><span>' + it.qty + 'x ' + it.name + '</span><span class="font-mono text-crema-400">₹' + (it.price * it.qty) + '</span></div>';
+            }).join("");
+          }
+
+          // Clear cart
+          state.orderCart = [];
+
+          // Switch to Step 3 Confirmation Receipt
+          setOrderStep(3);
+
+          // Update Data Portal live tables
+          renderOrdersTable();
+          renderDataPortalKPIs();
+
+          showToast("🎉 Order " + newOrderId + " placed successfully on the website!");
+        }
+
+        function sendReceiptToWhatsApp() {
+          var ord = state.lastPlacedOrder;
+          if (!ord) return;
+          var lines = [
+            "🛍️ *ORDER DETAILS - The Aroma Espresso Bar*",
+            "━━━━━━━━━━━━━━━━━━━━",
+            "🆔 *Order ID:* " + ord.id,
+            "👤 *Customer:* " + ord.customer,
+            "📞 *Phone:* " + ord.phone,
+            "📌 *Type:* " + ord.type,
+            "📍 *Address / Delivery:* " + ord.address,
+            "━━━━━━━━━━━━━━━━━━━━",
+            "🍽️ *Items Ordered:*",
+            ord.items,
+            "━━━━━━━━━━━━━━━━━━━━",
+            "💰 *Total Amount:* " + ord.amount + " (" + ord.paymentStatus + ")",
+            "📝 *Notes:* " + ord.notes,
+            "━━━━━━━━━━━━━━━━━━━━",
+            "Placed on The Aroma Espresso Bar Website"
+          ];
+          var waNumber = ((state.siteContent && state.siteContent.whatsapp) || "+91 73475 19755").replace(/[^0-9]/g, "");
+          var waUrl = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(lines.join("\n"));
+          window.open(waUrl, "_blank", "noopener,noreferrer");
+        }
+
+        // Setup Category Filter Buttons in Order Modal
+        var orderCatContainer = document.getElementById("order-menu-cat-filters");
+        if (orderCatContainer) {
+          orderCatContainer.addEventListener("click", function (e) {
+            var btn = e.target.closest("[data-order-cat]");
+            if (!btn) return;
+            state.orderCategory = btn.getAttribute("data-order-cat");
+            var allBtns = orderCatContainer.querySelectorAll("[data-order-cat]");
+            allBtns.forEach(function (b) {
+              if (b === btn) {
+                b.className = "order-cat-btn px-3 py-1.5 rounded-xl bg-crema-400 text-espresso-950 font-bold text-xs transition";
+              } else {
+                b.className = "order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition";
+              }
+            });
+            renderOrderModalMenu();
+          });
+        }
+
+        // Search Input in Order Modal
+        var orderSearchInp = document.getElementById("order-menu-search");
+        if (orderSearchInp) {
+          orderSearchInp.addEventListener("input", function () {
+            state.orderSearch = orderSearchInp.value;
+            renderOrderModalMenu();
+          });
+        }
+
+        // Cart Actions Delegation (Step 1 Menu + Step 2 Checkout)
+        var orderStepMenu = document.getElementById("order-step-menu");
+        if (orderStepMenu) {
+          orderStepMenu.addEventListener("click", function (e) {
+            var btn = e.target.closest("[data-cart-action]");
+            if (!btn) return;
+            var action = btn.getAttribute("data-cart-action");
+            var dishId = btn.getAttribute("data-id");
+            if (action === "add" || action === "increase") addDishToOrder(dishId, 1);
+            else if (action === "decrease") addDishToOrder(dishId, -1);
+            else if (action === "remove") addDishToOrder(dishId, -999);
+          });
+        }
+
+        var checkoutItemsList = document.getElementById("checkout-cart-items-list");
+        if (checkoutItemsList) {
+          checkoutItemsList.addEventListener("click", function (e) {
+            var btn = e.target.closest("[data-cart-action]");
+            if (!btn) return;
+            var action = btn.getAttribute("data-cart-action");
+            var dishId = btn.getAttribute("data-id");
+            if (action === "increase") addDishToOrder(dishId, 1);
+            else if (action === "decrease") addDishToOrder(dishId, -1);
+            else if (action === "remove") addDishToOrder(dishId, -999);
+          });
+        }
+
+        // Step Navigation Buttons
+        var stepNavMenuBtn = document.getElementById("step-nav-menu-btn");
+        if (stepNavMenuBtn) {
+          stepNavMenuBtn.addEventListener("click", function () {
+            setOrderStep(1);
+          });
+        }
+
+        var stepNavCheckoutBtn = document.getElementById("step-nav-checkout-btn");
+        if (stepNavCheckoutBtn) {
+          stepNavCheckoutBtn.addEventListener("click", function () {
+            var totals = calculateOrderCartTotals();
+            if (totals.count <= 0) {
+              showToast("Please choose at least 1 dish from the menu first.");
+              return;
+            }
+            setOrderStep(2);
+          });
+        }
+
+        var backToMenuLinkBtn = document.getElementById("back-to-menu-link-btn");
+        if (backToMenuLinkBtn) {
+          backToMenuLinkBtn.addEventListener("click", function () {
+            setOrderStep(1);
+          });
+        }
+
+        var orderFooterBackBtn = document.getElementById("order-footer-back-btn");
+        if (orderFooterBackBtn) {
+          orderFooterBackBtn.addEventListener("click", function () {
+            setOrderStep(1);
+          });
+        }
+
+        // Primary Footer Button
+        var orderFooterPrimaryBtn = document.getElementById("order-footer-primary-btn");
+        if (orderFooterPrimaryBtn) {
+          orderFooterPrimaryBtn.addEventListener("click", function () {
+            if (state.currentOrderStep === 1) {
+              var totals = calculateOrderCartTotals();
+              if (totals.count <= 0) {
+                showToast("Please choose at least 1 dish to order.");
+                return;
+              }
+              setOrderStep(2);
+            } else if (state.currentOrderStep === 2) {
+              submitDirectWebsiteOrder();
+            }
+          });
+        }
+
+        // Dynamic Address Label based on Order Type
+        document.querySelectorAll('input[name="directOrderType"]').forEach(function (radio) {
+          radio.addEventListener("change", function () {
+            var label = document.getElementById("direct-order-address-label");
+            var inp = document.getElementById("direct-order-address");
+            if (!label || !inp) return;
+            if (this.value === "Home Delivery") {
+              label.innerHTML = 'Delivery Address in Moonak <span class="text-rose-400">*</span>';
+              inp.placeholder = "e.g. Near Stadium, Jakhal Road, Moonak";
+            } else if (this.value === "Takeaway / Pickup") {
+              label.innerHTML = 'Pickup Time / Instructions';
+              inp.placeholder = "e.g. Ready in 20 minutes, packing requested";
+            } else if (this.value === "Dine-In Table Order") {
+              label.innerHTML = 'Table Number in Café';
+              inp.placeholder = "e.g. Table #3 near window";
+            }
+          });
+        });
+
+        // Receipt Action Buttons
+        var receiptWaBtn = document.getElementById("receipt-whatsapp-copy-btn");
+        if (receiptWaBtn) {
+          receiptWaBtn.addEventListener("click", sendReceiptToWhatsApp);
+        }
+
+        var receiptCloseBtn = document.getElementById("receipt-close-btn");
+        if (receiptCloseBtn) {
+          receiptCloseBtn.addEventListener("click", closeOrderModal);
+        }
+
+        // Hook up Open Order Online Buttons
         var headerOrderBtn = document.getElementById("open-order-online-btn");
         if (headerOrderBtn) headerOrderBtn.addEventListener("click", openOrderModal);
 
@@ -4041,64 +4724,15 @@
           });
         }
 
-        var browseMenuBtn = document.getElementById("browse-menu-from-order-btn");
-        if (browseMenuBtn) {
-          browseMenuBtn.addEventListener("click", function () {
-            closeOrderModal();
-            var menuSec = document.getElementById("menu");
-            if (menuSec) menuSec.scrollIntoView({ behavior: "smooth" });
-          });
-        }
-
-        var submitOrderBtn = document.getElementById("submit-whatsapp-order-btn");
-        if (submitOrderBtn) {
-          submitOrderBtn.addEventListener("click", function () {
-            var typeRadio = document.querySelector('input[name="orderType"]:checked');
-            var orderType = typeRadio ? typeRadio.value : "Takeaway / Pickup";
-            var details = document.getElementById("online-order-details").value.trim();
-            var itemsText = document.getElementById("online-order-items").value.trim();
-
-            var lines = ["🛍️ *NEW ONLINE ORDER - The Aroma Espresso Bar*"];
-            lines.push("━━━━━━━━━━━━━━━━━━━━");
-            lines.push("📌 *Order Type:* " + orderType);
-            if (details) {
-              lines.push("👤 *Customer / Details:* " + details);
+        // Homepage Menu Card "Order Online" Button Delegation
+        var menuGridEl = document.getElementById("menu-grid");
+        if (menuGridEl) {
+          menuGridEl.addEventListener("click", function (e) {
+            var orderBtn = e.target.closest('[data-action="order-online-item"]');
+            if (orderBtn) {
+              var dishId = orderBtn.getAttribute("data-id");
+              openOrderModalWithDish(dishId);
             }
-            lines.push("━━━━━━━━━━━━━━━━━━━━");
-            lines.push("🍽️ *Items Ordered:*");
-            if (itemsText) {
-              lines.push(itemsText);
-            } else if (state.inquiryTray.length > 0) {
-              state.inquiryTray.forEach(function (it, idx) {
-                lines.push((idx + 1) + ". " + it.name + " (" + it.category + " - " + it.price + ")");
-              });
-            } else {
-              lines.push("- Please confirm menu availability");
-            }
-            lines.push("━━━━━━━━━━━━━━━━━━━━");
-            lines.push("Sent from The Aroma Espresso Bar Website");
-
-            // Auto-log order into state and persistent storage
-            var newOrd = {
-              id: "ORD-" + Math.floor(1000 + Math.random() * 9000),
-              timestamp: new Date().toISOString(),
-              dateStr: "Just now (" + new Date().toLocaleTimeString("en-IN", { hour: '2-digit', minute: '2-digit' }) + ")",
-              type: orderType,
-              customer: details || "Guest (via WhatsApp Order)",
-              items: itemsText || (state.inquiryTray.map(function (it) { return it.name; }).join(", ")) || "Chef's Special Request",
-              status: "New",
-              source: "Online Order Modal"
-            };
-            if (!Array.isArray(state.orders)) state.orders = [];
-            state.orders.unshift(newOrd);
-            saveState("aroma_orders_v1", state.orders);
-            trackEvent("order_submitted");
-
-            var waNumber = ((state.siteContent && state.siteContent.whatsapp) || "+91 73475 19755").replace(/[^0-9]/g, "");
-            var waUrl = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(lines.join("\n"));
-            window.open(waUrl, "_blank", "noopener,noreferrer");
-            closeOrderModal();
-            showToast("Opening WhatsApp with your order...");
           });
         }
 

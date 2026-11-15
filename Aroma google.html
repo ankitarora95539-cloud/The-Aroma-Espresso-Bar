@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -172,6 +172,7 @@
         <a href="#hero" class="hover:text-crema-400 transition-colors whitespace-nowrap">Home</a>
         <a href="#about" class="hover:text-crema-400 transition-colors whitespace-nowrap">About Us</a>
         <a href="#menu" class="hover:text-crema-400 transition-colors whitespace-nowrap">Our Menu</a>
+        <a href="https://4167070d.aroma-3iv.pages.dev/aroma-menu.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-crema-400 transition-colors whitespace-nowrap text-crema-300 flex items-center gap-1"><span>Menu PDF ↗</span></a>
         <a href="#why-us" class="hover:text-crema-400 transition-colors whitespace-nowrap">Why Us</a>
         <a href="#reviews" class="hover:text-crema-400 transition-colors whitespace-nowrap">Reviews</a>
         <a href="#gallery" class="hover:text-crema-400 transition-colors whitespace-nowrap">Gallery</a>
@@ -215,7 +216,8 @@
     <div id="mobile-menu-drawer" class="hidden xl:hidden border-t border-crema-400/20 bg-espresso-900/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2">
       <a href="#hero" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Home</a>
       <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">About Us</a>
-      <a href="#menu" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Our Menu (Editable Sample)</a>
+      <a href="#menu" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Our Menu (Official 180+ Items)</a>
+      <a href="https://4167070d.aroma-3iv.pages.dev/aroma-menu.pdf" target="_blank" rel="noopener noreferrer" class="mobile-nav-link flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-crema-300 hover:bg-crema-400/15"><span>Official Menu PDF ↗</span><span class="text-xs bg-crema-400/20 text-crema-400 px-2 py-0.5 rounded font-mono">PDF</span></a>
       <a href="#why-us" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Why Customers Love Us</a>
       <a href="#reviews" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Customer Reviews (4.7★)</a>
       <a href="#gallery" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Gallery</a>
@@ -445,54 +447,75 @@
           Browse our six signature categories below.
         </p>
 
-        <!-- Explicit Notice: Sample Menu Items Until Official Menu Provided -->
-        <div class="mt-5 p-4 rounded-2xl bg-espresso-800/90 border border-crema-400/35 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div class="flex items-start gap-3">
-            <span class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-crema-400/20 text-crema-400 font-bold text-sm shrink-0">!</span>
+        <!-- Official Menu Announcement & PDF Download Link -->
+        <div class="mt-5 p-4 sm:p-5 rounded-2xl bg-espresso-900/90 border border-crema-400/35 text-left flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
+          <div class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-crema-400/20 text-crema-400 flex items-center justify-center shrink-0 text-xl shadow-inner">
+              📜
+            </div>
             <div>
-              <p class="text-xs sm:text-sm font-semibold text-crema-100">
-                Editable Sample Menu Placeholders
-              </p>
-              <p class="text-xs text-crema-300/85">
-                In accordance with restaurant guidelines, the cards below are <strong>editable sample templates</strong> without invented prices. Click <strong>"Edit Sample Item"</strong> on any card or <strong>"+ Add Menu Item"</strong> to enter official dishes &amp; pricing.
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-sm sm:text-base font-bold text-crema-100">
+                  Official Aroma Espresso Bar Menu (Moonak Branch)
+                </span>
+                <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-md">
+                  Verified 187 Items
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-crema-300/85 mt-1 leading-relaxed">
+                Loaded directly from the official printed brochure (<code class="text-crema-400 font-mono text-xs">aroma-menu.pdf</code>). Handcrafted hot coffees, thick shakes, wood-fired style pizzas, gourmet burgers, pastas, Chinese sizzlers, momos, and combos with official Moonak pricing.
               </p>
             </div>
           </div>
-          <button
-            id="add-menu-item-btn"
-            type="button"
-            class="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-semibold text-xs transition"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-            <span>Add Menu Item</span>
-          </button>
+          <div class="flex items-center gap-2.5 w-full md:w-auto shrink-0 flex-wrap sm:flex-nowrap">
+            <a
+              href="https://4167070d.aroma-3iv.pages.dev/aroma-menu.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-bold text-xs sm:text-sm transition shadow-lg"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Download Official PDF Menu</span>
+            </a>
+            <button
+              id="add-menu-item-btn"
+              type="button"
+              class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl glass-light hover:border-crema-400 text-crema-200 hover:text-crema-100 font-semibold text-xs transition"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              <span>Add Custom Item</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Category Filter Pills + Search Input -->
       <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10">
-        <!-- 6 Required Categories + All -->
+        <!-- 7 Official Menu Categories + All -->
         <div id="menu-category-tabs" class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar" role="tablist" aria-label="Menu Categories">
           <button type="button" data-category="All" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition whitespace-nowrap bg-crema-400 text-espresso-950 shadow-md">
-            All Categories
+            All Categories (187)
           </button>
-          <button type="button" data-category="Coffee & Beverages" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
-            Coffee &amp; Beverages
+          <button type="button" data-category="Hot Coffee & Teas" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
+            Hot Coffee &amp; Teas
           </button>
-          <button type="button" data-category="Pizza" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
-            Pizza
+          <button type="button" data-category="Cold Coffee & Shakes" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
+            Cold Coffee &amp; Shakes
           </button>
-          <button type="button" data-category="Fast Food" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
-            Fast Food
+          <button type="button" data-category="Pizzas" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
+            Pizzas
           </button>
-          <button type="button" data-category="Snacks" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
-            Snacks
+          <button type="button" data-category="Burgers & Sandwiches" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
+            Burgers &amp; Sandwiches
           </button>
-          <button type="button" data-category="Desserts" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
-            Desserts
+          <button type="button" data-category="Pasta, Wraps & Sides" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
+            Pasta, Wraps &amp; Sides
           </button>
-          <button type="button" data-category="Special Combos" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
-            Special Combos
+          <button type="button" data-category="Snacks & Momos" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
+            Snacks &amp; Momos
+          </button>
+          <button type="button" data-category="Desserts & Combos" class="menu-tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition whitespace-nowrap glass-light text-crema-200 hover:border-crema-400/40">
+            Desserts &amp; Combos
           </button>
         </div>
 
@@ -955,7 +978,8 @@
           <ul class="space-y-2 text-sm">
             <li><a href="#hero" class="hover:text-crema-400 transition">Home</a></li>
             <li><a href="#about" class="hover:text-crema-400 transition">About Us</a></li>
-            <li><a href="#menu" class="hover:text-crema-400 transition">Our Menu (Sample Template)</a></li>
+            <li><a href="#menu" class="hover:text-crema-400 transition">Our Menu (Official 180+ Items)</a></li>
+            <li><a href="https://4167070d.aroma-3iv.pages.dev/aroma-menu.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-crema-400 transition">Download Official PDF Menu ↗</a></li>
             <li><a href="#why-us" class="hover:text-crema-400 transition">Why Customers Love Us</a></li>
             <li><a href="#reviews" class="hover:text-crema-400 transition">Customer Reviews (4.7★)</a></li>
             <li><a href="#gallery" class="hover:text-crema-400 transition">Photo Gallery</a></li>
@@ -1965,12 +1989,13 @@
           <div>
             <label class="block text-xs font-semibold uppercase tracking-wider text-crema-400 mb-1">Category</label>
             <select id="edit-item-category" class="w-full px-3.5 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-sm text-crema-100 focus:outline-none focus:border-crema-400">
-              <option value="Coffee & Beverages">Coffee &amp; Beverages</option>
-              <option value="Pizza">Pizza</option>
-              <option value="Fast Food">Fast Food</option>
-              <option value="Snacks">Snacks</option>
-              <option value="Desserts">Desserts</option>
-              <option value="Special Combos">Special Combos</option>
+              <option value="Hot Coffee & Teas">Hot Coffee &amp; Teas</option>
+              <option value="Cold Coffee & Shakes">Cold Coffee &amp; Shakes</option>
+              <option value="Pizzas">Pizzas</option>
+              <option value="Burgers & Sandwiches">Burgers &amp; Sandwiches</option>
+              <option value="Pasta, Wraps & Sides">Pasta, Wraps &amp; Sides</option>
+              <option value="Snacks & Momos">Snacks &amp; Momos</option>
+              <option value="Desserts & Combos">Desserts &amp; Combos</option>
             </select>
           </div>
           <div>
@@ -2196,13 +2221,14 @@
           <!-- Filter bar -->
           <div class="flex flex-wrap items-center justify-between gap-3 bg-espresso-900/60 p-3 rounded-2xl border border-crema-400/20">
             <div class="flex items-center gap-1.5 overflow-x-auto py-1" id="order-menu-cat-filters">
-              <button type="button" data-order-cat="All" class="order-cat-btn px-3 py-1.5 rounded-xl bg-crema-400 text-espresso-950 font-bold text-xs transition">All</button>
-              <button type="button" data-order-cat="Coffee & Beverages" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Coffee &amp; Drinks</button>
-              <button type="button" data-order-cat="Pizza" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Pizza</button>
-              <button type="button" data-order-cat="Fast Food" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Fast Food</button>
-              <button type="button" data-order-cat="Snacks" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Snacks</button>
-              <button type="button" data-order-cat="Desserts" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Desserts</button>
-              <button type="button" data-order-cat="Special Combos" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Combos</button>
+              <button type="button" data-order-cat="All" class="order-cat-btn px-3 py-1.5 rounded-xl bg-crema-400 text-espresso-950 font-bold text-xs transition">All (187)</button>
+              <button type="button" data-order-cat="Hot Coffee & Teas" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Hot Brews</button>
+              <button type="button" data-order-cat="Cold Coffee & Shakes" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Cold &amp; Shakes</button>
+              <button type="button" data-order-cat="Pizzas" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Pizzas</button>
+              <button type="button" data-order-cat="Burgers & Sandwiches" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Burgers &amp; Subs</button>
+              <button type="button" data-order-cat="Pasta, Wraps & Sides" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Pasta &amp; Wraps</button>
+              <button type="button" data-order-cat="Snacks & Momos" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Snacks &amp; Momos</button>
+              <button type="button" data-order-cat="Desserts & Combos" class="order-cat-btn px-3 py-1.5 rounded-xl glass-light text-crema-200 hover:text-crema-100 font-medium text-xs transition">Desserts &amp; Combos</button>
             </div>
             <div class="flex items-center gap-2 flex-1 sm:flex-initial justify-end">
               <input id="order-menu-search" type="text" placeholder="Search dish..." class="w-full sm:w-48 px-3 py-1.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-xs text-crema-100 focus:outline-none focus:border-crema-400" />
@@ -2447,76 +2473,1687 @@
       // Default Editable Sample Menu Items (Strictly labeled as Sample Templates, no fabricated claims)
       var DEFAULT_MENU = [
         {
-          id: "sample-coffee-1",
-          name: "Signature Espresso & Cappuccino",
-          category: "Coffee & Beverages",
-          price: "₹120",
-          desc: "Handcrafted rich espresso with velvety steamed milk froth and artisan crema.",
+          id: "hc-1",
+          name: "Signature Espresso",
+          category: "Hot Coffee & Teas",
+          price: "₹75",
+          desc: "Pure concentrated artisanal coffee extraction with rich golden crema (0 KLAC).",
           badge: "Bestseller",
           image: IMG_COFFEE
         },
         {
-          id: "sample-coffee-2",
-          name: "Iced Caramel Macchiato & Frappe",
-          category: "Coffee & Beverages",
-          price: "₹160",
-          desc: "Chilled espresso poured over rich caramel drizzle, fresh cold milk, and crushed ice.",
-          badge: "Chef's Special",
+          id: "hc-2",
+          name: "Cafe Americano",
+          category: "Hot Coffee & Teas",
+          price: "₹85",
+          desc: "Rich espresso shots diluted with hot water for an intense aromatic brew (0 KLAC).",
+          badge: "Classic",
           image: IMG_COFFEE
         },
         {
-          id: "sample-pizza-1",
-          name: "Artisan Wood-Style Margherita Pizza",
-          category: "Pizza",
-          price: "₹240",
-          desc: "Crispy thin crust with slow-simmered Italian plum tomato sauce, mozzarella cheese, and fresh basil.",
+          id: "hc-3",
+          name: "Flat & White",
+          category: "Hot Coffee & Teas",
+          price: "₹100",
+          desc: "Bold espresso with velvety micro-foam steamed milk (Regular ₹100 / Medium ₹160 - 89/165 KLAC).",
+          badge: "Barista Choice",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-4",
+          name: "Classic Cappuccino",
+          category: "Hot Coffee & Teas",
+          price: "₹120",
+          desc: "Equal parts rich espresso, steamed milk, and thick frothy foam dusting (Regular ₹120 / Medium ₹170).",
+          badge: "Bestseller",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-5",
+          name: "Cafe Latte",
+          category: "Hot Coffee & Teas",
+          price: "₹130",
+          desc: "Smooth espresso balanced with generous steamed milk and light foam cap (Regular ₹130 / Medium ₹180).",
           badge: "Popular",
-          image: IMG_PIZZA
+          image: IMG_COFFEE
         },
         {
-          id: "sample-pizza-2",
-          name: "Farmhouse & Paneer Special Pizza",
-          category: "Pizza",
-          price: "₹280",
-          desc: "Loaded with spiced cottage cheese cubes, crisp bell peppers, sweet corn, and double mozzarella.",
-          badge: "Must Try",
-          image: IMG_PIZZA
-        },
-        {
-          id: "sample-fastfood-1",
-          name: "Gourmet Café Burger & Grilled Sandwich",
-          category: "Fast Food",
-          price: "₹180",
-          desc: "Golden grilled burger patty or three-tier toasted club sandwich with chef's secret herbs sauce.",
-          badge: "Customer Favorite",
-          image: IMG_COMBO
-        },
-        {
-          id: "sample-snacks-1",
-          name: "Crispy Peri-Peri Fries & Café Bites",
-          category: "Snacks",
-          price: "₹110",
-          desc: "Freshly cut golden fries tossed in African peri-peri spice dust, served with garlic dip.",
-          badge: "Quick Snack",
-          image: IMG_PIZZA
-        },
-        {
-          id: "sample-desserts-1",
-          name: "Belgian Waffle & Hazelnut Pastry",
-          category: "Desserts",
+          id: "hc-6",
+          name: "Cafe Mocha",
+          category: "Hot Coffee & Teas",
           price: "₹150",
-          desc: "Warm golden Belgian waffle topped with chocolate hazelnut spread, dark choco chips, and vanilla scoop.",
-          badge: "Sweet Delight",
+          desc: "Rich chocolate ganache blended with bold espresso and velvety milk (Regular ₹150 / Medium ₹200).",
+          badge: "Indulgent",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-7",
+          name: "Caramel Cappuccino",
+          category: "Hot Coffee & Teas",
+          price: "₹160",
+          desc: "Creamy cappuccino infused with premium salted caramel drizzle (Regular ₹160 / Medium ₹210).",
+          badge: "Chef Special",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-8",
+          name: "Caramel Cafe Latte",
+          category: "Hot Coffee & Teas",
+          price: "₹170",
+          desc: "Smooth cafe latte with golden buttery caramel swirl (Regular ₹170 / Medium ₹220 - 103/188 KLAC).",
+          badge: "Must Try",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-9",
+          name: "Hazelnut Cappuccino",
+          category: "Hot Coffee & Teas",
+          price: "₹160",
+          desc: "Roasted hazelnut essence layered into thick velvety cappuccino foam (Regular ₹160 / Medium ₹210).",
+          badge: "Favorite",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-10",
+          name: "Hazelnut Cafe Latte",
+          category: "Hot Coffee & Teas",
+          price: "₹170",
+          desc: "Toasted hazelnut flavour combined with rich espresso and silky milk (Regular ₹170 / Medium ₹220).",
+          badge: "Popular",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-11",
+          name: "Vanilla Cappuccino",
+          category: "Hot Coffee & Teas",
+          price: "₹160",
+          desc: "Aromatic French vanilla aroma blended into handcrafted cappuccino (Regular ₹160 / Medium ₹210).",
+          badge: "Classic",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-12",
+          name: "Vanilla Cafe Latte",
+          category: "Hot Coffee & Teas",
+          price: "₹170",
+          desc: "Subtly sweet vanilla bean infusion in warm steamed espresso latte (Regular ₹170 / Medium ₹220).",
+          badge: "Smooth",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-13",
+          name: "Irish Cappuccino",
+          category: "Hot Coffee & Teas",
+          price: "₹160",
+          desc: "Signature Irish cream flavor extract with bold Italian espresso (Regular ₹160 / Medium ₹210).",
+          badge: "Specialty",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-14",
+          name: "Jaggary Cappuccino (Gur)",
+          category: "Hot Coffee & Teas",
+          price: "₹160",
+          desc: "Traditional unrefined organic jaggery sweetened healthy cappuccino (Regular ₹160 / Medium ₹210).",
+          badge: "Healthy Choice",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-15",
+          name: "Jaggary Latte (Gur)",
+          category: "Hot Coffee & Teas",
+          price: "₹170",
+          desc: "Wholesome desi jaggery infused milk latte with aromatic espresso (Regular ₹170 / Medium ₹220).",
+          badge: "Desi Special",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-16",
+          name: "Hot Chocolate",
+          category: "Hot Coffee & Teas",
+          price: "₹99",
+          desc: "Decadent melted cocoa and warmed whole milk topped with chocolate dusting (77 KLAC).",
+          badge: "Sweet Indulgence",
           image: IMG_DESSERT
         },
         {
-          id: "sample-combos-1",
-          name: "Friends & Family Café Combo Platter",
-          category: "Special Combos",
-          price: "₹399",
-          desc: "Value party combo: 1x Farmhouse Pizza, 1x Gourmet Burger, Peri-Peri Fries, and 2x Cold Frappes.",
-          badge: "Value Combo",
+          id: "hc-17",
+          name: "Hot Caramello",
+          category: "Hot Coffee & Teas",
+          price: "₹99",
+          desc: "Rich warm buttery caramel milk treat with golden sweetness (250 KLAC).",
+          badge: "Delight",
+          image: IMG_DESSERT
+        },
+        {
+          id: "hc-18",
+          name: "Organic Green Tea",
+          category: "Hot Coffee & Teas",
+          price: "₹50",
+          desc: "Detoxifying antioxidant-rich clear green tea leaves brew (3 KLAC).",
+          badge: "Healthy",
+          image: IMG_COFFEE
+        },
+        {
+          id: "hc-19",
+          name: "Fresh Lemon Tea",
+          category: "Hot Coffee & Teas",
+          price: "₹50",
+          desc: "Rejuvenating warm tea infused with fresh tangy citrus lemon extract (25 KLAC).",
+          badge: "Refreshing",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-1",
+          name: "Café Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Signature creamy blended iced coffee topped with milk foam (Regular ₹99 / Medium ₹149 - 288 KLAC).",
+          badge: "Bestseller",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-2",
+          name: "Iced Latte",
+          category: "Cold Coffee & Shakes",
+          price: "₹149",
+          desc: "Chilled espresso poured over fresh cold milk and ice (Regular ₹149 / Medium ₹199 - Any Flavour +₹50).",
+          badge: "Popular",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-3",
+          name: "Iced Mocha",
+          category: "Cold Coffee & Shakes",
+          price: "₹149",
+          desc: "Dark chocolate syrup blended with cold espresso and milk (Regular ₹149 / Medium ₹199 - 280 KLAC).",
+          badge: "Choco Blend",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-4",
+          name: "Dark Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹149",
+          desc: "Intense roasted dark espresso blended with crushed ice and cream (Regular ₹149 / Medium ₹199).",
+          badge: "Strong Brew",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-5",
+          name: "Hazelnut Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹149",
+          desc: "Chilled hazelnut cream blended frappe with rich nutty aroma (Regular ₹149 / Medium ₹199 - 490 KLAC).",
+          badge: "Chef Special",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-6",
+          name: "Caramel Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹149",
+          desc: "Decadent caramel sauce swirled cold frappe (Regular ₹149 / Medium ₹199 - 420 KLAC).",
+          badge: "Must Try",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-7",
+          name: "Vanilla Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹149",
+          desc: "Smooth French vanilla chilled frappe with creamy whip (Regular ₹149 / Medium ₹199 - 200 KLAC).",
+          badge: "Refreshing",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-8",
+          name: "Blue Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹149",
+          desc: "Exotic blue curacao infused iced coffee beverage with unique taste (Regular ₹149 / Medium ₹199).",
+          badge: "Exotic",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-9",
+          name: "Irish Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹149",
+          desc: "Creamy Irish malt flavoured cold coffee blend (Regular ₹149 / Medium ₹199 - 387 KLAC).",
+          badge: "Specialty",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-10",
+          name: "Brownie Iced Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹209",
+          desc: "Blended with fresh baked choco brownie chunks and espresso (Regular ₹209 / Medium ₹249 - 641 KLAC).",
+          badge: "Supreme Treat",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-11",
+          name: "Banana Caramel Frappe",
+          category: "Cold Coffee & Shakes",
+          price: "₹209",
+          desc: "Ripe sweet banana and golden caramel thick cold frappe (Regular ₹209 / Medium ₹249 - 430 KLAC).",
+          badge: "Signature",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-12",
+          name: "Cold Chocolate",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Chilled Dutch chocolate shake with cocoa drizzle (77 KLAC).",
+          badge: "Chilled",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-13",
+          name: "Cold Caramello",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Iced caramel milk shake with butterscotch richness (250 KLAC).",
+          badge: "Sweet",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-14",
+          name: "Peach Ice Tea",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Brewed black tea infused with sweet sun-ripened peach essence (152 KLAC).",
+          badge: "Cooler",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-15",
+          name: "Lemon Ice Tea",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Classic iced tea with zesty lemon and mint on ice (140 KLAC).",
+          badge: "All-Time Fav",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-16",
+          name: "Strawberry Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Creamy thick shake blended with real strawberry fruit pulp (Regular ₹99 / Medium ₹149).",
+          badge: "Fruity",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-17",
+          name: "Chocolate Thick Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Classic thick chocolate shake with rich milk chocolate ganache (Regular ₹99 / Medium ₹149).",
+          badge: "Popular",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-18",
+          name: "Mango Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Tropical ripe Alphonso mango thick shake (Regular ₹99 / Medium ₹149 - 270 KLAC).",
+          badge: "Tropical",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-19",
+          name: "Bubblegum Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Fun retro pink bubblegum flavoured chilled thick shake (Regular ₹99 / Medium ₹149).",
+          badge: "Fun Flavor",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-20",
+          name: "Pineapple Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Sweet tangy pineapple juice blended into thick dairy shake (Regular ₹99 / Medium ₹149).",
+          badge: "Tangy",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-21",
+          name: "Vanilla Thick Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Rich Madagascar vanilla bean thick dairy shake (Regular ₹99 / Medium ₹149).",
+          badge: "Classic",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-22",
+          name: "Blueberry Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹120",
+          desc: "Real wild blueberry compote blended into gourmet thick shake (Regular ₹120 / Medium ₹169).",
+          badge: "Gourmet",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-23",
+          name: "Butter Scotch Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Crunchy butterscotch praline caramel shake (Regular ₹99 / Medium ₹149).",
+          badge: "Crunchy",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-24",
+          name: "Caramel Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Golden caramel sauce blended with sweet rich cream (Regular ₹99 / Medium ₹149).",
+          badge: "Sweet",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-25",
+          name: "Black Current Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Tangy sweet dark blackcurrant berry shake (Regular ₹99 / Medium ₹149).",
+          badge: "Berry Blend",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-26",
+          name: "Oreo Thick Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹120",
+          desc: "Crushed Oreo cookies blended with chocolate ice cream (Regular ₹120 / Medium ₹169).",
+          badge: "Bestseller",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-27",
+          name: "Kit Kat Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹120",
+          desc: "Crispy Kit Kat chocolate wafer fingers blended into creamy shake (Regular ₹120 / Medium ₹169).",
+          badge: "Favorite",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-28",
+          name: "Banana Caramel Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹120",
+          desc: "Fresh sweet bananas blended with golden caramel fudge (Regular ₹120 / Medium ₹169).",
+          badge: "Delicious",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-29",
+          name: "Peanut Butter Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹120",
+          desc: "Protein-rich creamy peanut butter blended with dairy milk (Regular ₹120 / Medium ₹169).",
+          badge: "Protein Rich",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-30",
+          name: "Lotus Biscoff Shake",
+          category: "Cold Coffee & Shakes",
+          price: "₹200",
+          desc: "Belgian Lotus Biscoff caramelized speculoos cookie spread shake (Regular ₹200 / Medium ₹379).",
+          badge: "Super Premium",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cc-31",
+          name: "Virgin Mojito",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Zesty muddled fresh lime, garden mint, and sparkling soda on ice (Regular ₹99 / Medium ₹149).",
+          badge: "Refresher",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-32",
+          name: "Green Apple Soda",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Crisp tart green apple syrup topped with effervescent soda (Regular ₹99 / Medium ₹149).",
+          badge: "Cooler",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-33",
+          name: "Cool Blue Mocktail",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Tropical blue curacao cooler with citrus fizz and crushed ice (Regular ₹99 / Medium ₹149).",
+          badge: "Chilled",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-34",
+          name: "Classic Lemonade",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Homestyle sweet and salty chilled citrus lemonade (Regular ₹99 / Medium ₹149).",
+          badge: "Classic",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-35",
+          name: "Blue Lemonade",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Tangy lemonade with blue lagoon splash and lemon slices (Regular ₹99 / Medium ₹149).",
+          badge: "Refreshing",
+          image: IMG_COFFEE
+        },
+        {
+          id: "cc-36",
+          name: "Watermelon Mocktail",
+          category: "Cold Coffee & Shakes",
+          price: "₹99",
+          desc: "Juicy sweet red watermelon cooler with refreshing mint sprig (Regular ₹99 / Medium ₹149).",
+          badge: "Hydrating",
+          image: IMG_COFFEE
+        },
+        {
+          id: "pz-1",
+          name: "Veg Onion Pizza",
+          category: "Pizzas",
+          price: "₹120",
+          desc: "Simple crispy pizza crust with crunchy diced onions & mozzarella (Small ₹120 / Reg ₹180 / Med ₹280 / Lrg ₹400).",
+          badge: "Pure Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-2",
+          name: "Capsicum Pizza",
+          category: "Pizzas",
+          price: "₹120",
+          desc: "Fresh green bell peppers and melted golden mozzarella (Small ₹120 / Reg ₹180 / Med ₹280 / Lrg ₹400).",
+          badge: "Pure Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-3",
+          name: "Golden Corn Pizza",
+          category: "Pizzas",
+          price: "₹120",
+          desc: "Sweet American corn kernels layered on mozzarella cheese base (Small ₹120 / Reg ₹180 / Med ₹280 / Lrg ₹400).",
+          badge: "Pure Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-4",
+          name: "Corn & Capsicum Pizza",
+          category: "Pizzas",
+          price: "₹150",
+          desc: "Combination of sweet corn and crispy green capsicum (Small ₹150 / Reg ₹200 / Med ₹300 / Lrg ₹450).",
+          badge: "Pure Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-5",
+          name: "Paneer Special Pizza",
+          category: "Pizzas",
+          price: "₹150",
+          desc: "Soft marinated cottage cheese cubes, jalapenos, and bell peppers (Small ₹150 / Reg ₹200 / Med ₹300 / Lrg ₹450).",
+          badge: "Popular Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-6",
+          name: "Full Cheesy Loaded Pizza",
+          category: "Pizzas",
+          price: "₹150",
+          desc: "Double mozzarella cheese explosion with black olives & red paprika (Small ₹150 / Reg ₹200 / Med ₹300 / Lrg ₹450).",
+          badge: "Cheese Overload",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-7",
+          name: "Achari Paneer Pizza",
+          category: "Pizzas",
+          price: "₹200",
+          desc: "Zesty Indian pickle spiced paneer, onions, capsicum, corn, olives (Small ₹200 / Reg ₹250 / Med ₹350 / Lrg ₹600).",
+          badge: "Spicy Delight",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-8",
+          name: "The Aroma Special Veg Pizza",
+          category: "Pizzas",
+          price: "₹200",
+          desc: "Loaded supreme: Onion, capsicum, sweet corn, paneer, black olives & red paprika (Small ₹200 / Reg ₹250 / Med ₹350 / Lrg ₹600).",
+          badge: "Chef Signature",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-9",
+          name: "Classic Chicken Pizza",
+          category: "Pizzas",
+          price: "₹200",
+          desc: "Tender roasted chicken chunks, onion, olives & capsicum (Small ₹200 / Reg ₹250 / Med ₹400 / Lrg ₹550).",
+          badge: "Non-Veg Classic",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-10",
+          name: "Chicken Cheese Pizza",
+          category: "Pizzas",
+          price: "₹250",
+          desc: "Double cheese base loaded with seasoned chicken, red paprika & olives (Small ₹250 / Reg ₹300 / Med ₹450 / Lrg ₹600).",
+          badge: "Bestseller Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-11",
+          name: "Chicken Kebab Pizza",
+          category: "Pizzas",
+          price: "₹250",
+          desc: "Juicy spiced chicken seekh kebab slices, onions & bell peppers (Small ₹250 / Reg ₹300 / Med ₹450 / Lrg ₹600).",
+          badge: "Kebab Special",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-12",
+          name: "Salami Chicken Pizza",
+          category: "Pizzas",
+          price: "₹250",
+          desc: "Smoked chicken salami slices, capsicum & mozzarella (Small ₹250 / Reg ₹300 / Med ₹450 / Lrg ₹600).",
+          badge: "Smoky",
+          image: IMG_PIZZA
+        },
+        {
+          id: "pz-13",
+          name: "Aroma Special Chicken Pizza",
+          category: "Pizzas",
+          price: "₹280",
+          desc: "Ultimate feast: Onion, capsicum, chicken kebab, chicken salami & roasted chicken (Small ₹280 / Reg ₹330 / Med ₹480 / Lrg ₹650).",
+          badge: "Non-Veg Supreme",
+          image: IMG_PIZZA
+        },
+        {
+          id: "bg-1",
+          name: "Veg Aloo Tikki Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹50",
+          desc: "Crispy golden potato patty with fresh onions, tomato & burger sauce.",
+          badge: "Budget Bite",
           image: IMG_COMBO
+        },
+        {
+          id: "bg-2",
+          name: "Veg Crunchy Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹70",
+          desc: "Extra crunchy seasoned vegetable patty with shredded lettuce and creamy mayo.",
+          badge: "Crunchy",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-3",
+          name: "Paneer Lover Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹99",
+          desc: "Thick marinated grilled paneer patty with spicy herb sauce.",
+          badge: "Pure Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-4",
+          name: "Veg Cheese Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹99",
+          desc: "Toasted sesame bun with crunchy veggie patty and melted cheese slice.",
+          badge: "Cheesy",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-5",
+          name: "Tandoori Paneer Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹129",
+          desc: "Smoky tandoori marinated paneer with mint mayo and crisp onion rings.",
+          badge: "Desi Tandoori",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-6",
+          name: "Veg Aroma Signature Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹149",
+          desc: "Double veggie patty stacked with melted cheese, jalapenos, and chef sauce.",
+          badge: "Signature Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-7",
+          name: "Chicken Crunchy Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹100",
+          desc: "Crispy fried chicken breast fillet with creamy garlic mayonnaise.",
+          badge: "Popular Non-Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-8",
+          name: "Oregano Chicken Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹149",
+          desc: "Herb-seasoned chicken patty with Mediterranean oregano spice mix.",
+          badge: "Herb Infused",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-9",
+          name: "Chicken Cheese Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹149",
+          desc: "Juicy chicken patty layered with cheddar cheese slice and dill pickles.",
+          badge: "Classic Non-Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-10",
+          name: "Egg & Chicken Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹179",
+          desc: "Crispy chicken fillet stacked with a freshly griddled fried egg.",
+          badge: "Double Power",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-11",
+          name: "Tandoori Chicken Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹170",
+          desc: "Charcoal-spiced tandoori chicken patty with zesty mint tandoori mayo.",
+          badge: "Spicy Tandoori",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-12",
+          name: "Aroma Signature Chicken Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹199",
+          desc: "Double loaded chicken patties, cheese slices, fried egg & secret dressing.",
+          badge: "Ultimate Non-Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "bg-13",
+          name: "Enjoy Egg Burger",
+          category: "Burgers & Sandwiches",
+          price: "₹100",
+          desc: "Double fluffy griddled eggs with toasted sesame bun and burger sauce.",
+          badge: "Egg Special",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-1",
+          name: "Classic Veg Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹99",
+          desc: "Fresh garden vegetables with tangy mint chutney and seasoned butter.",
+          badge: "Light & Fresh",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-2",
+          name: "Veg Tandoori Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹110",
+          desc: "Grilled sandwich with tandoori vegetable stuffing and cheese melt.",
+          badge: "Tandoori Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-3",
+          name: "Grilled Paneer Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹129",
+          desc: "Grilled soft cottage cheese cubes with spices and capsicum.",
+          badge: "Pure Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-4",
+          name: "Veg Cheese Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹139",
+          desc: "Golden toasted triple-layer bread loaded with melted cheese.",
+          badge: "Cheesy",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-5",
+          name: "Cheese Corn Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹149",
+          desc: "Sweet American corn kernels melted with mozzarella cheese & herbs.",
+          badge: "Customer Fav",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-6",
+          name: "Tandoori Paneer Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹159",
+          desc: "Spiced tandoori paneer slices grilled crisp with mint mayo.",
+          badge: "Spicy",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-7",
+          name: "Achari Paneer Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹159",
+          desc: "Tangy pickle marinated cottage cheese filling with crunchy peppers.",
+          badge: "Zesty",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-8",
+          name: "Aroma Signature Veg Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹200",
+          desc: "Chef triple-decker sandwich loaded with paneer, corn, cheese & herbs.",
+          badge: "Signature Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-9",
+          name: "Classic Chicken Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹119",
+          desc: "Shredded tender chicken tossed in mayonnaise and cracked black pepper.",
+          badge: "Classic Non-Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-10",
+          name: "Tandoori Chicken Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹149",
+          desc: "Smoky tandoori chicken chunks grilled with capsicum and cheese.",
+          badge: "Tandoori Bite",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-11",
+          name: "Chicken Cheese Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹149",
+          desc: "Seasoned chicken chunks with melted cheese spread in grilled bread.",
+          badge: "Cheesy Non-Veg",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-12",
+          name: "Kebab Chicken Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹149",
+          desc: "Sliced chicken seekh kebabs grilled with onion rings and mint mayo.",
+          badge: "Kebab Special",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-13",
+          name: "Grilled Chicken Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹169",
+          desc: "Char-grilled chicken breast slices with Italian herb marinade.",
+          badge: "Healthy Grilled",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-14",
+          name: "Egg & Chicken Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹179",
+          desc: "Protein combo of grilled chicken and freshly griddled eggs.",
+          badge: "High Protein",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-15",
+          name: "Boil Chicken Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹169",
+          desc: "Lean boiled chicken breast lightly tossed in herbs and olive oil.",
+          badge: "Fitness Choice",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-16",
+          name: "Achari Cheese Chicken Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹149",
+          desc: "Spiced achari chicken filling with melted cheese layer.",
+          badge: "Spicy",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-17",
+          name: "Aroma Signature Chicken Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹219",
+          desc: "Supreme 3-layer club sandwich with chicken, egg, cheese, salami & dip.",
+          badge: "Ultimate Club",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-18",
+          name: "Egg Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹110",
+          desc: "Double egg omelette filling with sliced tomatoes and pepper.",
+          badge: "Breakfast Classic",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-19",
+          name: "Egg & Paneer Sandwich",
+          category: "Burgers & Sandwiches",
+          price: "₹160",
+          desc: "Grilled egg omelette with spiced soft paneer slices.",
+          badge: "Dual Protein",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-20",
+          name: "Veg Aroma Sub (Footlong/Sub)",
+          category: "Burgers & Sandwiches",
+          price: "₹200",
+          desc: "Toasted sub roll loaded with paneer, vegetables, sauces and herbs.",
+          badge: "Submarine Special",
+          image: IMG_COMBO
+        },
+        {
+          id: "sw-21",
+          name: "Aroma Chicken Sub (Footlong/Sub)",
+          category: "Burgers & Sandwiches",
+          price: "₹200",
+          desc: "Toasted sub roll packed with juicy chicken chunks and specialty dressings.",
+          badge: "Submarine Special",
+          image: IMG_COMBO
+        },
+        {
+          id: "ps-1",
+          name: "Veg White Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹159",
+          desc: "Penne pasta cooked in rich velvety Alfredo cream sauce with cheese.",
+          badge: "Creamy Alfredo",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ps-2",
+          name: "Veg Red Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹159",
+          desc: "Penne pasta tossed in tangy slow-simmered Arrabbiata tomato sauce.",
+          badge: "Tangy Arrabbiata",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ps-3",
+          name: "Veg Tandoori Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹169",
+          desc: "Fusion penne pasta tossed in smoky tandoori spiced cheese sauce.",
+          badge: "Desi Fusion",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ps-4",
+          name: "Veg Mix Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹179",
+          desc: "Pink sauce pasta combining creamy white and tangy red tomato sauces.",
+          badge: "Bestseller Pasta",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ps-5",
+          name: "Non-Veg White Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹199",
+          desc: "Creamy Alfredo pasta loaded with tender roasted chicken chunks.",
+          badge: "Non-Veg Alfredo",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ps-6",
+          name: "Non-Veg Red Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹199",
+          desc: "Spicy Italian tomato sauce pasta loaded with seasoned chicken.",
+          badge: "Spicy Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ps-7",
+          name: "Non-Veg Tandoori Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹209",
+          desc: "Smoky tandoori cream sauce with spiced tandoori chicken pieces.",
+          badge: "Tandoori Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ps-8",
+          name: "Non-Veg Mix Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹219",
+          desc: "Velvety pink cream and red sauce pasta packed with roasted chicken.",
+          badge: "Chef Special",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ps-9",
+          name: "Achari Cheese Sauce Pasta",
+          category: "Pasta, Wraps & Sides",
+          price: "₹249",
+          desc: "Zesty achari herb spiced creamy cheese pasta with chicken chunks.",
+          badge: "Super Rich",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sd-1",
+          name: "Cheese Garlic Bread",
+          category: "Pasta, Wraps & Sides",
+          price: "₹99",
+          desc: "Crispy oven-baked French baguette slices loaded with garlic butter & cheese.",
+          badge: "All-Time Fav",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sd-2",
+          name: "Achari Garlic Bread",
+          category: "Pasta, Wraps & Sides",
+          price: "₹99",
+          desc: "Crispy garlic bread with spicy Indian achari seasoning and melted cheese.",
+          badge: "Spicy Side",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sd-3",
+          name: "Crispy Masala Fries",
+          category: "Pasta, Wraps & Sides",
+          price: "₹99",
+          desc: "Golden fried potato fingers dusted with secret chaat masala seasoning.",
+          badge: "Crispy",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sd-4",
+          name: "Tandoori Fries",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Crisp fries tossed in smoky tandoori sauce and herbs.",
+          badge: "Tandoori Flavor",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sd-5",
+          name: "Peri Peri Fries",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Hot crispy fries coated with spicy African peri-peri chili dust.",
+          badge: "Bestseller Side",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sd-6",
+          name: "Cheesy Fries",
+          category: "Pasta, Wraps & Sides",
+          price: "₹159",
+          desc: "Golden fries smothered in rich warm melted cheddar cheese sauce.",
+          badge: "Cheese Lovers",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sd-7",
+          name: "Cheesy Loaded Fries",
+          category: "Pasta, Wraps & Sides",
+          price: "₹179",
+          desc: "Crispy fries loaded with cheese sauce, jalapenos, olives & seasonings.",
+          badge: "Loaded",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sd-8",
+          name: "Peri Peri Chicken Loaded Fries",
+          category: "Pasta, Wraps & Sides",
+          price: "₹199",
+          desc: "Loaded fries with shredded peri-peri chicken, cheese melt and sauces.",
+          badge: "Supreme Loaded",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-1",
+          name: "Veg Wrap (Tortilla)",
+          category: "Pasta, Wraps & Sides",
+          price: "₹99",
+          desc: "Warm tortilla roll filled with fresh crunchy salad and herb sauce (Whole Wheat +₹20).",
+          badge: "Pure Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-2",
+          name: "Paneer Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹119",
+          desc: "Soft seasoned paneer chunks rolled in warm toasted tortilla.",
+          badge: "Popular Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-3",
+          name: "Veg Tandoori Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Crisp veggie patties tossed in tandoori dressing rolled in wrap.",
+          badge: "Tandoori",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-4",
+          name: "Tandoori Paneer Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Charcoal spiced cottage cheese with mint mayonnaise in wrap.",
+          badge: "Bestseller Wrap",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-5",
+          name: "Peri Peri Paneer Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Spicy peri-peri marinated paneer with crisp onions and capsicum.",
+          badge: "Spicy",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-6",
+          name: "Achari Paneer Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Pickle spiced tangy paneer cubes wrapped with fresh greens.",
+          badge: "Zesty",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-7",
+          name: "Aroma Signature Veg Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹199",
+          desc: "Double loaded wrap with paneer, sweet corn, cheese & signature dressing.",
+          badge: "Signature Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-8",
+          name: "Crunchy Paneer Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹159",
+          desc: "Golden crumbed crunchy paneer strips with creamy mayo in wrap.",
+          badge: "Crunchy",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-9",
+          name: "Hara Bhara Kabab Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹169",
+          desc: "Spinach and green pea hara bhara kebabs rolled with mint chutney.",
+          badge: "Healthy Bite",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-10",
+          name: "Classic Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹129",
+          desc: "Tender roasted chicken strips wrapped with lettuce and garlic mayo.",
+          badge: "Classic Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-11",
+          name: "Kebab Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Spiced chicken seekh kebab rolled in toasted tortilla with onions.",
+          badge: "Kebab Wrap",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-12",
+          name: "Peri Peri Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Juicy chicken chunks tossed in fiery peri-peri sauce.",
+          badge: "Spicy Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-13",
+          name: "Boiled Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹159",
+          desc: "Healthy boiled lean chicken breast wrapped with crisp salad greens.",
+          badge: "Fitness Wrap",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-14",
+          name: "Crunchy Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹159",
+          desc: "Golden crispy fried chicken strips rolled with creamy pepper mayo.",
+          badge: "Crunchy Fav",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-15",
+          name: "Egg & Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹179",
+          desc: "Hearty wrap loaded with griddled egg and seasoned chicken fillet.",
+          badge: "High Protein",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-16",
+          name: "Grill Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹179",
+          desc: "Char-grilled chicken strips with smokey BBQ and herb dressing.",
+          badge: "Grilled Special",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-17",
+          name: "Tandoori Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹159",
+          desc: "Spiced tandoori chicken tikka rolled with pickled onions and mint sauce.",
+          badge: "Tandoori Hit",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-18",
+          name: "Aroma Signature Chicken Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹209",
+          desc: "Ultimate chicken wrap loaded with chicken tikka, kebab, cheese & sauces.",
+          badge: "Signature Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-19",
+          name: "Egg Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹120",
+          desc: "Freshly cooked egg omelette rolled with onions, tomatoes & mayo.",
+          badge: "Egg Special",
+          image: IMG_PIZZA
+        },
+        {
+          id: "wp-20",
+          name: "Egg & Paneer Wrap",
+          category: "Pasta, Wraps & Sides",
+          price: "₹160",
+          desc: "Double filling of soft paneer cubes and fluffy griddled eggs.",
+          badge: "Dual Protein",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sl-1",
+          name: "Green Garden Salad",
+          category: "Pasta, Wraps & Sides",
+          price: "₹149",
+          desc: "Crisp cucumbers, tomatoes, carrots, lettuce and lemon dressing (Medium ₹149 / Large ₹199).",
+          badge: "Fresh & Healthy",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sl-2",
+          name: "Paneer Salad",
+          category: "Pasta, Wraps & Sides",
+          price: "₹159",
+          desc: "Fresh paneer cubes tossed with garden greens and herb vinaigrette (Medium ₹159 / Large ₹220).",
+          badge: "Pure Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sl-3",
+          name: "Crunchy Paneer Salad",
+          category: "Pasta, Wraps & Sides",
+          price: "₹199",
+          desc: "Golden fried crunchy paneer bites on crisp lettuce with mayo (Medium ₹199 / Large ₹250).",
+          badge: "Crunchy",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sl-4",
+          name: "Chicken Salad",
+          category: "Pasta, Wraps & Sides",
+          price: "₹199",
+          desc: "Tender roasted chicken strips on mixed garden greens (Medium ₹199 / Large ₹299).",
+          badge: "Healthy Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sl-5",
+          name: "Grilled Chicken Salad",
+          category: "Pasta, Wraps & Sides",
+          price: "₹229",
+          desc: "Char-grilled chicken breast slices tossed in olive oil vinaigrette (Medium ₹229 / Large ₹359).",
+          badge: "Gourmet Salad",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sl-6",
+          name: "Aroma Signature Non-Veg Salad",
+          category: "Pasta, Wraps & Sides",
+          price: "₹259",
+          desc: "Supreme salad with grilled chicken, salami, boiled eggs & cheese (Medium ₹259 / Large ₹399).",
+          badge: "Signature Salad",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-1",
+          name: "Kurkure Crunchy Spring Roll",
+          category: "Snacks & Momos",
+          price: "₹169",
+          desc: "Crispy kurkure coated spring rolls packed with vegetable stuffing.",
+          badge: "Crispy Snack",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-2",
+          name: "Kurkure Crunchy Strips",
+          category: "Snacks & Momos",
+          price: "₹199",
+          desc: "Crispy textured snack strips fried golden and tossed with spices.",
+          badge: "Crunchy",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-3",
+          name: "Kurkure Crunchy Cheese Strips",
+          category: "Snacks & Momos",
+          price: "₹199",
+          desc: "Melt-in-mouth cheese filled strips coated in crunchy kurkure crust.",
+          badge: "Cheese Lovers",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-4",
+          name: "Crispy Paneer Strips",
+          category: "Snacks & Momos",
+          price: "₹199",
+          desc: "Fresh paneer batons breaded and fried golden crisp with dip.",
+          badge: "Pure Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-5",
+          name: "Peri Peri Paneer Bites",
+          category: "Snacks & Momos",
+          price: "₹249",
+          desc: "Spicy peri-peri seasoned paneer bites (Half ₹249 / Full ₹489).",
+          badge: "Spicy Bites",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-6",
+          name: "Hara Bhara Kabab",
+          category: "Snacks & Momos",
+          price: "₹199",
+          desc: "Traditional pan-grilled spinach, green peas and paneer patties with chutney.",
+          badge: "Classic Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-7",
+          name: "Peri Peri Chicken Bites",
+          category: "Snacks & Momos",
+          price: "₹250",
+          desc: "Fiery peri-peri spiced boneless chicken bites (Half ₹250 / Full ₹499).",
+          badge: "Spicy Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-8",
+          name: "Boil Chicken Bowl",
+          category: "Snacks & Momos",
+          price: "₹250",
+          desc: "Tender boiled lean chicken breast bowl with mild herb seasoning (Half ₹250 / Full ₹499).",
+          badge: "Healthy Diet",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-9",
+          name: "KFC Style Crispy Chicken (With Fries)",
+          category: "Snacks & Momos",
+          price: "₹300",
+          desc: "Extra crispy golden battered fried chicken served with french fries (Half ₹300 / Full ₹599).",
+          badge: "Bestseller Non-Veg",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-10",
+          name: "Grilled Chicken Strips",
+          category: "Snacks & Momos",
+          price: "₹250",
+          desc: "Tender chicken strips marinated and char-grilled with dipping sauce (Half ₹250 / Full ₹499).",
+          badge: "Char-Grilled",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-11",
+          name: "Chicken Popcorn (With Fries)",
+          category: "Snacks & Momos",
+          price: "₹250",
+          desc: "Bite-sized crispy chicken poppers served with golden fries (Half ₹250 / Full ₹499).",
+          badge: "Snack Attack",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-12",
+          name: "Peri Peri Chicken Popcorn (With Fries)",
+          category: "Snacks & Momos",
+          price: "₹280",
+          desc: "Crunchy chicken poppers dusted with hot peri-peri seasoning (Half ₹280 / Full ₹549).",
+          badge: "Hot & Spicy",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-13",
+          name: "Crispy Chicken Strips (With Fries)",
+          category: "Snacks & Momos",
+          price: "₹280",
+          desc: "Tender boneless chicken strips fried crispy and served with french fries.",
+          badge: "Crispy Fav",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-14",
+          name: "Chicken Nuts (With Fries)",
+          category: "Snacks & Momos",
+          price: "₹300",
+          desc: "Gourmet breaded chicken bites fried golden and served with french fries.",
+          badge: "Specialty",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-15",
+          name: "Chicken Seekh Kebab (With Fries)",
+          category: "Snacks & Momos",
+          price: "₹250",
+          desc: "Traditional spiced chicken seekh kebabs served hot with french fries & dip.",
+          badge: "Kebab Platter",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-16",
+          name: "Veg Crunchy Momos",
+          category: "Snacks & Momos",
+          price: "₹169",
+          desc: "Crispy deep-fried kurkure coated vegetable momos with red chili sauce.",
+          badge: "Crispy Momos",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-17",
+          name: "Crunchy Paneer Momos",
+          category: "Snacks & Momos",
+          price: "₹179",
+          desc: "Golden crunchy momos stuffed with spiced soft cottage cheese.",
+          badge: "Paneer Special",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-18",
+          name: "Chicken Crunchy Momos",
+          category: "Snacks & Momos",
+          price: "₹199",
+          desc: "Crispy kurkure battered momos stuffed with juicy minced chicken.",
+          badge: "Bestseller Momos",
+          image: IMG_PIZZA
+        },
+        {
+          id: "sk-19",
+          name: "The Aroma Veg Platter",
+          category: "Snacks & Momos",
+          price: "₹299",
+          desc: "Mega party feast: 2 Veg Momos, 2 Spring Rolls, Fries, Veg Strips, Veg Kebab, 2 Dips & 1 Coke.",
+          badge: "Value Platter",
+          image: IMG_COMBO
+        },
+        {
+          id: "sk-20",
+          name: "The Aroma Non-Veg Platter",
+          category: "Snacks & Momos",
+          price: "₹349",
+          desc: "Feast platter: 1 Egg, 2 Chicken Kebabs, Fries, Chicken Popcorn, Chicken Strips, 2 Dips & 1 Coke.",
+          badge: "Ultimate Platter",
+          image: IMG_COMBO
+        },
+        {
+          id: "ds-1",
+          name: "Single Scoop Ice Cream",
+          category: "Desserts & Combos",
+          price: "₹49",
+          desc: "Rich and creamy gourmet ice cream scoop in choice of flavors.",
+          badge: "Sweet Treat",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ds-2",
+          name: "Double Scoop Ice Cream",
+          category: "Desserts & Combos",
+          price: "₹79",
+          desc: "Double delight scoops of premium ice cream with choice of syrups.",
+          badge: "Double Delight",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ds-3",
+          name: "Warm Choco Brownie",
+          category: "Desserts & Combos",
+          price: "₹99",
+          desc: "Dense fudgy chocolate brownie baked fresh with dark chocolate cocoa.",
+          badge: "Classic Brownie",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ds-4",
+          name: "Choco Brownie with Chocolate Sauce",
+          category: "Desserts & Combos",
+          price: "₹109",
+          desc: "Warm chocolate brownie drenched in hot melted chocolate ganache.",
+          badge: "Choco Overload",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ds-5",
+          name: "Choco Brownie with Ice Cream",
+          category: "Desserts & Combos",
+          price: "₹149",
+          desc: "Warm fudge brownie paired with a scoop of vanilla bean ice cream.",
+          badge: "Bestseller Dessert",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ds-6",
+          name: "Sizzling Brownie with Ice Cream",
+          category: "Desserts & Combos",
+          price: "₹199",
+          desc: "Served on a smoking hot sizzler plate with sizzling chocolate fudge and vanilla scoop.",
+          badge: "Showstopper",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ds-7",
+          name: "Caramel Brownie",
+          category: "Desserts & Combos",
+          price: "₹199",
+          desc: "Rich chocolate brownie drizzled with warm sea-salt caramel sauce & nuts.",
+          badge: "Caramel Swirl",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ds-8",
+          name: "Lotus Biscoff Brownie",
+          category: "Desserts & Combos",
+          price: "₹199",
+          desc: "Gourmet brownie topped with authentic melted Lotus Biscoff speculoos spread.",
+          badge: "Super Indulgence",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ds-9",
+          name: "Dark Passion Dessert",
+          category: "Desserts & Combos",
+          price: "₹199",
+          desc: "Intense dark chocolate luxury dessert creation with cocoa flakes.",
+          badge: "Chef Creation",
+          image: IMG_DESSERT
+        },
+        {
+          id: "cb-1",
+          name: "Combo 1: Coke + Pizza + Fries",
+          category: "Desserts & Combos",
+          price: "₹270",
+          desc: "Value meal: 1 Personal Pizza + 1 French Fries + 1 Chilled Coca-Cola.",
+          badge: "Super Saver",
+          image: IMG_COMBO
+        },
+        {
+          id: "cb-2",
+          name: "Combo 2: Cappuccino + Brownie",
+          category: "Desserts & Combos",
+          price: "₹210",
+          desc: "Café favorite: 1 Hot Handcrafted Cappuccino + 1 Warm Chocolate Brownie.",
+          badge: "Café Classic",
+          image: IMG_COMBO
+        },
+        {
+          id: "cb-3",
+          name: "Combo 3: Veg Sandwich + Frappe",
+          category: "Desserts & Combos",
+          price: "₹180",
+          desc: "Bestseller: 1 Grilled Veg Sandwich + 1 Chilled Café Frappe.",
+          badge: "Popular Combo",
+          image: IMG_COMBO
+        },
+        {
+          id: "cb-4",
+          name: "Combo 4: Cappuccino + Garlic Bread",
+          category: "Desserts & Combos",
+          price: "₹199",
+          desc: "Evening treat: 1 Hot Cappuccino + 1 Portion Cheesy Garlic Bread.",
+          badge: "Snack Combo",
+          image: IMG_COMBO
+        },
+        {
+          id: "cb-5",
+          name: "Combo 5: Frappe + Brownie + Sandwich + Burger",
+          category: "Desserts & Combos",
+          price: "₹360",
+          desc: "Hunger buster: 1 Cold Frappe + 1 Brownie + 1 Grilled Sandwich + 1 Burger.",
+          badge: "Grand Feast",
+          image: IMG_COMBO
+        },
+        {
+          id: "cb-6",
+          name: "Combo 6: Veg Sandwich + Fries + Burger",
+          category: "Desserts & Combos",
+          price: "₹250",
+          desc: "All-in-one meal: 1 Grilled Veg Sandwich + 1 Crispy Fries + 1 Veg Burger.",
+          badge: "Meal Deal",
+          image: IMG_COMBO
+        },
+        {
+          id: "ad-1",
+          name: "Add-On: Single Espresso Shot",
+          category: "Desserts & Combos",
+          price: "₹50",
+          desc: "Extra boost shot of dark Italian espresso roast.",
+          badge: "Add-On",
+          image: IMG_COFFEE
+        },
+        {
+          id: "ad-2",
+          name: "Add-On: Chocolate Drizzle",
+          category: "Desserts & Combos",
+          price: "₹50",
+          desc: "Extra hot melted chocolate sauce topping.",
+          badge: "Add-On",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ad-3",
+          name: "Add-On: Extra Cheese Slice / Melt",
+          category: "Desserts & Combos",
+          price: "₹50",
+          desc: "Melted mozzarella or cheddar cheese topping.",
+          badge: "Add-On",
+          image: IMG_PIZZA
+        },
+        {
+          id: "ad-4",
+          name: "Add-On: Vanilla Ice Cream Scoop",
+          category: "Desserts & Combos",
+          price: "₹50",
+          desc: "Scoop of premium vanilla bean ice cream.",
+          badge: "Add-On",
+          image: IMG_DESSERT
+        },
+        {
+          id: "ad-5",
+          name: "Add-On: Egg Extra",
+          category: "Desserts & Combos",
+          price: "₹30",
+          desc: "Fresh griddled egg addition for burgers, wraps or sandwiches.",
+          badge: "Add-On",
+          image: IMG_COMBO
+        },
+        {
+          id: "ad-6",
+          name: "Add-On: Chicken Extra",
+          category: "Desserts & Combos",
+          price: "₹70",
+          desc: "Extra portion of seasoned roasted or grilled chicken.",
+          badge: "Add-On",
+          image: IMG_COMBO
+        },
+        {
+          id: "ad-7",
+          name: "Add-On: House Dipping Sauce",
+          category: "Desserts & Combos",
+          price: "₹20",
+          desc: "Extra cup of garlic mayo, peri-peri or mint dip.",
+          badge: "Add-On",
+          image: IMG_PIZZA
         }
       ];
 
@@ -2724,9 +4361,9 @@
         selectedCategory: "All",
         menuSearch: "",
         menuItems: (function () {
-          var m = loadState("aroma_menu_v1", null);
-          if (!m || !Array.isArray(m) || m.length === 0 || (m[0] && m[0].price && m[0].price.indexOf("Sample") !== -1)) {
-            saveState("aroma_menu_v1", DEFAULT_MENU);
+          var m = loadState("aroma_menu_v2", null);
+          if (!m || !Array.isArray(m) || m.length === 0 || (m[0] && m[0].price && m[0].price.indexOf("Sample") !== -1) || m.length < 50) {
+            saveState("aroma_menu_v2", DEFAULT_MENU);
             return JSON.parse(JSON.stringify(DEFAULT_MENU));
           }
           return m;
@@ -3728,7 +5365,7 @@
             state.hours = Object.assign({}, DEFAULT_HOURS);
             state.socials = Object.assign({}, DEFAULT_SOCIALS);
             state.inquiryTray = [];
-            saveState("aroma_menu_v1", state.menuItems);
+            saveState("aroma_menu_v2", state.menuItems);
             saveState("aroma_gallery_v1", state.galleryItems);
             saveState("aroma_hours_v1", state.hours);
             saveState("aroma_socials_v1", state.socials);
@@ -3812,7 +5449,7 @@
             document.getElementById("menu-modal-title").textContent = "Add Official or Sample Menu Item";
             document.getElementById("edit-item-id").value = "";
             document.getElementById("edit-item-name").value = "";
-            document.getElementById("edit-item-category").value = state.selectedCategory === "All" ? "Coffee & Beverages" : state.selectedCategory;
+            document.getElementById("edit-item-category").value = state.selectedCategory === "All" ? "Hot Coffee & Teas" : state.selectedCategory;
             document.getElementById("edit-item-price").value = "Price on Request";
             document.getElementById("edit-item-desc").value = "";
             document.getElementById("edit-item-badge").value = "Official Menu Item ✓";
@@ -3833,6 +5470,13 @@
             var badgeVal = document.getElementById("edit-item-badge").value;
 
             var catImgMap = {
+              "Hot Coffee & Teas": IMG_COFFEE,
+              "Cold Coffee & Shakes": IMG_COFFEE,
+              "Pizzas": IMG_PIZZA,
+              "Burgers & Sandwiches": IMG_COMBO,
+              "Pasta, Wraps & Sides": IMG_PIZZA,
+              "Snacks & Momos": IMG_PIZZA,
+              "Desserts & Combos": IMG_DESSERT,
               "Coffee & Beverages": IMG_COFFEE,
               "Pizza": IMG_PIZZA,
               "Fast Food": IMG_COMBO,
@@ -3867,7 +5511,7 @@
               });
               showToast("New menu item added!");
             }
-            saveState("aroma_menu_v1", state.menuItems);
+            saveState("aroma_menu_v2", state.menuItems);
             menuModal.classList.add("hidden");
             renderMenu();
           });
@@ -5350,7 +6994,7 @@
               var item = state.menuItems.find(function (m) { return m.id === id; });
               if (item) {
                 item.soldOut = !item.soldOut;
-                saveState("aroma_menu_v1", state.menuItems);
+                saveState("aroma_menu_v2", state.menuItems);
                 renderAdminMenuTable();
                 renderMenu();
                 showToast(item.name + (item.soldOut ? " marked as Sold Out" : " marked as In Stock"));
@@ -5379,7 +7023,7 @@
             if (delBtn) {
               var id = delBtn.getAttribute("data-admin-menu-del");
               state.menuItems = state.menuItems.filter(function (m) { return m.id !== id; });
-              saveState("aroma_menu_v1", state.menuItems);
+              saveState("aroma_menu_v2", state.menuItems);
               renderAdminMenuTable();
               renderMenu();
               showToast("Menu item removed.");
@@ -5492,7 +7136,7 @@
         if (exportBackupBtn) {
           exportBackupBtn.addEventListener("click", function () {
             var backup = {
-              aroma_menu_v1: state.menuItems,
+              aroma_menu_v2: state.menuItems,
               aroma_gallery_v1: state.galleryItems,
               aroma_hours_v1: state.hours,
               aroma_socials_v1: state.socials,
@@ -5523,7 +7167,7 @@
             reader.onload = function (evt) {
               try {
                 var data = JSON.parse(evt.target.result);
-                if (data.aroma_menu_v1) { state.menuItems = data.aroma_menu_v1; saveState("aroma_menu_v1", state.menuItems); }
+                if (data.aroma_menu_v2) { state.menuItems = data.aroma_menu_v2; saveState("aroma_menu_v2", state.menuItems); }
                 if (data.aroma_gallery_v1) { state.galleryItems = data.aroma_gallery_v1; saveState("aroma_gallery_v1", state.galleryItems); }
                 if (data.aroma_hours_v1) { state.hours = data.aroma_hours_v1; saveState("aroma_hours_v1", state.hours); }
                 if (data.aroma_socials_v1) { state.socials = data.aroma_socials_v1; saveState("aroma_socials_v1", state.socials); }
@@ -5553,7 +7197,7 @@
         if (factoryResetBtn) {
           factoryResetBtn.addEventListener("click", function () {
             if (confirm("Reset the entire website to fresh defaults? All custom edits will be cleared.")) {
-              localStorage.removeItem("aroma_menu_v1");
+              localStorage.removeItem("aroma_menu_v2");
               localStorage.removeItem("aroma_gallery_v1");
               localStorage.removeItem("aroma_hours_v1");
               localStorage.removeItem("aroma_socials_v1");

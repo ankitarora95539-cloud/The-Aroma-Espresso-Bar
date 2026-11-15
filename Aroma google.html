@@ -86,15 +86,16 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    /* Subtle section reveal animations */
+    /* Section visibility: always 100% visible, never blank or black */
     .reveal-section {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
     }
     .reveal-section.visible {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
     }
     /* Custom scrollbar */
     ::-webkit-scrollbar {
@@ -171,7 +172,7 @@
       <nav class="hidden xl:flex items-center gap-5 text-sm font-medium text-crema-200/90" aria-label="Main Navigation">
         <a href="#hero" class="hover:text-crema-400 transition-colors whitespace-nowrap">Home</a>
         <a href="#about" class="hover:text-crema-400 transition-colors whitespace-nowrap">About Us</a>
-        <a href="#menu" class="hover:text-crema-400 transition-colors whitespace-nowrap">Our Menu</a>
+        <a href="#menu" onclick="setTimeout(renderMenu, 50)" class="hover:text-crema-400 transition-colors whitespace-nowrap">Our Menu</a>
         
         <a href="#why-us" class="hover:text-crema-400 transition-colors whitespace-nowrap">Why Us</a>
         <a href="#reviews" class="hover:text-crema-400 transition-colors whitespace-nowrap">Reviews</a>
@@ -216,7 +217,7 @@
     <div id="mobile-menu-drawer" class="hidden xl:hidden border-t border-crema-400/20 bg-espresso-900/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2">
       <a href="#hero" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Home</a>
       <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">About Us</a>
-      <a href="#menu" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Our Menu (Official 180+ Items)</a>
+      <a href="#menu" onclick="setTimeout(renderMenu, 50)" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Our Menu (Official 180+ Items)</a>
       
       <a href="#why-us" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Why Customers Love Us</a>
       <a href="#reviews" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Customer Reviews (4.7★)</a>
@@ -433,7 +434,7 @@
   </section>
 
   <!-- 5. OUR MENU SECTION (Editable Sample Menu System) -->
-  <section id="menu" class="py-20 sm:py-28 bg-espresso-950 relative reveal-section">
+  <section id="menu" class="py-20 sm:py-28 bg-espresso-950 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Heading & Real Menu Highlights -->
       <div class="text-center max-w-4xl mx-auto mb-8">
@@ -564,8 +565,12 @@
       </div>
 
       <!-- Dynamic Menu Cards Grid -->
-      <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-        <!-- Populated by JavaScript -->
+            <!-- 1. Photo Cards Grid View Container -->
+      <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      </div>
+
+      <!-- 2. Classic Cafe Booklet Board View Container -->
+      <div id="menu-board-view" class="hidden space-y-10">
       </div>
     </div>
   </section>
@@ -4395,12 +4400,14 @@
         menuDiet: "all",
         menuViewMode: "cards",
         menuItems: (function () {
-          var m = loadState("aroma_menu_v2", null);
-          if (!m || !Array.isArray(m) || m.length === 0 || (m[0] && m[0].price && m[0].price.indexOf("Sample") !== -1) || m.length < 50) {
-            saveState("aroma_menu_v2", DEFAULT_MENU);
-            return JSON.parse(JSON.stringify(DEFAULT_MENU));
-          }
-          return m;
+          try {
+            var m = loadState("aroma_menu_v2", null);
+            if (m && Array.isArray(m) && m.length >= 150) {
+              return m;
+            }
+          } catch (e) {}
+          saveState("aroma_menu_v2", DEFAULT_MENU);
+          return JSON.parse(JSON.stringify(DEFAULT_MENU));
         })(),
         galleryFilter: "All",
         galleryItems: loadState("aroma_gallery_v1", DEFAULT_GALLERY),
@@ -5428,15 +5435,15 @@
 
       // EVENT LISTENERS & CONTROLLERS
       document.addEventListener("DOMContentLoaded", function () {
-        trackVisitor();
-        renderSiteContent();
-        renderMenu();
-        renderReviews();
-        renderGallery();
-        renderHours();
-        renderSocials();
-        renderTray();
-        initMap();
+        try { trackVisitor(); } catch (e) { console.warn("trackVisitor:", e); }
+        try { renderSiteContent(); } catch (e) { console.warn("renderSiteContent:", e); }
+        try { renderMenu(); } catch (e) { console.warn("renderMenu:", e); }
+        try { renderReviews(); } catch (e) { console.warn("renderReviews:", e); }
+        try { renderGallery(); } catch (e) { console.warn("renderGallery:", e); }
+        try { renderHours(); } catch (e) { console.warn("renderHours:", e); }
+        try { renderSocials(); } catch (e) { console.warn("renderSocials:", e); }
+        try { renderTray(); } catch (e) { console.warn("renderTray:", e); }
+        try { initMap(); } catch (e) { console.warn("initMap:", e); }
 
         // Direct Localhost Route & Hash Detection
         function checkUrlPortalRoute() {

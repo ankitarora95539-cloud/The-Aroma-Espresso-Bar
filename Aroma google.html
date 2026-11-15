@@ -2879,7 +2879,7 @@
             var isTablet = /iPad|Tablet/i.test(ua);
             var deviceType = isMobile ? "Mobile Phone" : (isTablet ? "Tablet" : "Desktop PC");
             var deviceKey = isMobile ? "mobile" : (isTablet ? "tablet" : "desktop");
-            if (!state.analytics.devices) state.analytics.devices = { mobile: 98, desktop: 36, tablet: 8 };
+            if (!state.analytics.devices) state.analytics.devices = { mobile: 0, desktop: 0, tablet: 0 };
             state.analytics.devices[deviceKey] = (state.analytics.devices[deviceKey] || 0) + 1;
 
             var browser = "Chrome";
@@ -2989,8 +2989,12 @@
         var elCallWa = document.getElementById("kpi-call-whatsapp");
         var elDir = document.getElementById("kpi-direction-clicks");
 
-        if (elTot) elTot.textContent = String(a.totalVisits || 142);
-        if (elUnq) elUnq.textContent = "(" + String(a.uniqueVisits || 89) + " unique)";
+        var totalVisits = (typeof a.totalVisits === "number") ? a.totalVisits : 142;
+        var uniqueVisits = (typeof a.uniqueVisits === "number") ? a.uniqueVisits : 89;
+        var pageviews = (typeof a.pageviews === "number") ? a.pageviews : 318;
+
+        if (elTot) elTot.textContent = String(totalVisits);
+        if (elUnq) elUnq.textContent = "(" + String(uniqueVisits) + " unique)";
         if (elOrd) elOrd.textContent = String(ordCount);
         if (elInq) elInq.textContent = String(inqCount);
         if (elCallWa) elCallWa.textContent = String((a.callClicks || 0) + (a.whatsappClicks || 0));
@@ -3001,11 +3005,11 @@
         if (badgeOrd) badgeOrd.textContent = String(ordCount);
         if (badgeInq) badgeInq.textContent = String(inqCount);
 
-        var devs = a.devices || { mobile: 98, desktop: 36, tablet: 8 };
-        var totalDev = (devs.mobile || 1) + (devs.desktop || 0) + (devs.tablet || 0);
-        var mobPct = Math.round((devs.mobile / totalDev) * 100);
-        var dskPct = Math.round((devs.desktop / totalDev) * 100);
-        var tabPct = 100 - mobPct - dskPct;
+        var devs = a.devices || { mobile: 0, desktop: 0, tablet: 0 };
+        var totalDev = (devs.mobile || 0) + (devs.desktop || 0) + (devs.tablet || 0);
+        var mobPct = totalDev > 0 ? Math.round(((devs.mobile || 0) / totalDev) * 100) : 0;
+        var dskPct = totalDev > 0 ? Math.round(((devs.desktop || 0) / totalDev) * 100) : 0;
+        var tabPct = totalDev > 0 ? Math.max(0, 100 - mobPct - dskPct) : 0;
 
         if (document.getElementById("stat-mobile-pct")) document.getElementById("stat-mobile-pct").textContent = mobPct + "%";
         if (document.getElementById("stat-mobile-bar")) document.getElementById("stat-mobile-bar").style.width = mobPct + "%";
@@ -3013,7 +3017,7 @@
         if (document.getElementById("stat-desktop-bar")) document.getElementById("stat-desktop-bar").style.width = dskPct + "%";
         if (document.getElementById("stat-tablet-pct")) document.getElementById("stat-tablet-pct").textContent = tabPct + "%";
         if (document.getElementById("stat-tablet-bar")) document.getElementById("stat-tablet-bar").style.width = tabPct + "%";
-        if (document.getElementById("stat-pageviews")) document.getElementById("stat-pageviews").textContent = String(a.pageviews || 318);
+        if (document.getElementById("stat-pageviews")) document.getElementById("stat-pageviews").textContent = String(pageviews);
 
         if (document.getElementById("rep-order-clicks")) document.getElementById("rep-order-clicks").textContent = String(ordCount);
         if (document.getElementById("rep-call-clicks")) document.getElementById("rep-call-clicks").textContent = String(a.callClicks || 0);
@@ -3024,7 +3028,7 @@
       function renderVisitorsTable() {
         var tbody = document.getElementById("visitors-log-tbody");
         if (!tbody) return;
-        var log = (state.analytics && state.analytics.visitorLog) || DEFAULT_ANALYTICS.visitorLog;
+        var log = (state.analytics && Array.isArray(state.analytics.visitorLog)) ? state.analytics.visitorLog : (DEFAULT_ANALYTICS.visitorLog || []);
         if (!log || log.length === 0) {
           tbody.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-crema-300">No visitor sessions recorded yet.</td></tr>';
           return;
@@ -4615,6 +4619,57 @@
             enquiryManageModal.classList.add("hidden");
             renderInquiriesTable();
             renderDataPortalKPIs();
+          });
+        }
+
+        // Reset Traffic Analytics Button
+        var resetAnalyticsBtn = document.getElementById("reset-analytics-btn");
+        if (resetAnalyticsBtn) {
+          resetAnalyticsBtn.addEventListener("click", function () {
+            if (!confirm("Are you sure you want to reset all website traffic statistics, visitor logs, and click counts to 0?\n\n(Customer orders and enquiries will NOT be deleted).")) {
+              return;
+            }
+            state.analytics = {
+              totalVisits: 0,
+              uniqueVisits: 0,
+              pageviews: 0,
+              ordersCount: (state.orders || []).length,
+              inquiriesCount: (state.inquiries || []).length,
+              callClicks: 0,
+              whatsappClicks: 0,
+              directionClicks: 0,
+              devices: { mobile: 0, desktop: 0, tablet: 0 },
+              visitorLog: []
+            };
+            saveState("aroma_analytics_v1", state.analytics);
+            try {
+              localStorage.removeItem("aroma_visitor_id");
+              sessionStorage.removeItem("aroma_session_active");
+            } catch (e) {}
+            renderDataPortal();
+            showToast("Traffic stats & visitor logs successfully reset to 0.");
+          });
+        }
+
+        // CSV Export Buttons
+        var dlOrdersBtn = document.getElementById("download-orders-csv-btn");
+        if (dlOrdersBtn) {
+          dlOrdersBtn.addEventListener("click", function () {
+            exportDataCSV("orders");
+          });
+        }
+
+        var dlInqBtn = document.getElementById("download-inquiries-csv-btn");
+        if (dlInqBtn) {
+          dlInqBtn.addEventListener("click", function () {
+            exportDataCSV("inquiries");
+          });
+        }
+
+        var dlVisBtn = document.getElementById("download-visitors-csv-btn");
+        if (dlVisBtn) {
+          dlVisBtn.addEventListener("click", function () {
+            exportDataCSV("visitors");
           });
         }
 

@@ -144,36 +144,6 @@
     <button id="close-announcement-btn" type="button" class="text-espresso-950/70 hover:text-espresso-950 px-2 font-bold shrink-0 text-sm" title="Dismiss">✕</button>
   </div>
 
-  <!-- Top Restaurant Customization Banner with Direct Portal Triggers -->
-  <div id="owner-banner" class="bg-espresso-800/95 border-b border-crema-400/25 px-4 py-2 text-xs text-crema-200 transition-all">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-crema-400/20 text-crema-400 border border-crema-400/30">
-          Executive Portal Access
-        </span>
-        <span class="text-crema-200/90 hidden md:inline">
-          Manage live website traffic, customer orders, enquiries &amp; full website configuration.
-        </span>
-      </div>
-      <div class="flex items-center gap-2 sm:gap-3">
-        <button id="top-data-portal-btn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-light hover:border-crema-400 text-crema-100 font-semibold text-xs border border-crema-400/30 transition shadow-sm" title="Data Portal (Password: 13131313)">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>📊 Data Portal <span class="text-crema-400 text-[11px] font-mono">(13131313)</span></span>
-        </button>
-        <button id="top-super-admin-btn" type="button" class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-crema-400 to-crema-500 text-espresso-950 font-bold hover:from-crema-300 hover:to-crema-400 transition text-xs shadow-sm" title="Super Admin Command Center (Password: 12121212)">
-          <svg class="w-3.5 h-3.5 text-espresso-950" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
-          <span>⚡ Super Admin <span class="text-espresso-950 text-[11px] font-mono">(12121212)</span></span>
-        </button>
-        <button id="toggle-admin-btn" type="button" class="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full glass-light text-crema-300 hover:text-crema-100 transition text-xs">
-          <span id="admin-mode-label">Quick Edit</span>
-        </button>
-        <button id="reset-defaults-btn" type="button" class="text-crema-300/75 hover:text-crema-100 underline text-[11px] transition">
-          Reset Edits
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Sticky Glassmorphism Navigation Bar -->
   <header id="main-navbar" class="sticky top-0 z-40 glass-panel transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
@@ -264,15 +234,6 @@
           <a href="https://wa.me/917347519755?text=Hello%20The%20Aroma%20Espresso%20Bar%2C%20I%20would%20like%20to%20order%20online%20or%20inquire%20about%20takeaway." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-espresso-800 text-crema-100 border border-crema-400/30 font-semibold text-xs whitespace-nowrap">
             <span>WhatsApp Us</span>
           </a>
-        </div>
-        <!-- Mobile Portal Access -->
-        <div class="grid grid-cols-2 gap-2 pt-1 border-t border-crema-400/15">
-          <button id="mobile-data-portal-btn" type="button" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl glass-panel text-crema-100 border border-crema-400/40 text-xs font-semibold">
-            <span>📊 Data (13131313)</span>
-          </button>
-          <button id="mobile-super-admin-btn" type="button" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-crema-400 text-espresso-950 font-bold text-xs">
-            <span>⚡ Admin (12121212)</span>
-          </button>
         </div>
       </div>
     </div>
@@ -1040,6 +1001,9 @@
           <a href="https://www.mapforham.com/time/city-moonak-11185885.html" target="_blank" rel="noopener noreferrer" class="hover:text-crema-400 underline">
             Moonak Coordinates Reference
           </a>
+          <a href="#dataportal" id="footer-staff-portal-btn" class="text-crema-400/30 hover:text-crema-200 transition text-[11px]" title="Staff Portal">
+            Staff Portal
+          </a>
         </div>
       </div>
     </div>
@@ -1057,18 +1021,6 @@
       <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.492 5.451 5.604-1.469c1.908 1.258 4.191 1.985 6.604 1.985 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/></svg>
       <span>WhatsApp Us</span>
     </a>
-  </div>
-
-  <!-- FLOATING BOTTOM-LEFT DOCK: QUICK PORTAL LAUNCHERS -->
-  <div id="aroma-admin-dock" class="fixed bottom-5 left-5 z-40 flex flex-col sm:flex-row items-start sm:items-center gap-2">
-    <button id="dock-data-portal-btn" type="button" class="group flex items-center gap-2 px-4 py-3 rounded-full glass-panel border border-crema-400/40 hover:border-crema-400 text-crema-100 font-semibold text-xs sm:text-sm shadow-2xl backdrop-blur-md transition transform hover:scale-105" title="Open Data Portal (Password: 13131313)">
-      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-      <span>📊 Data Portal <span class="text-[11px] text-crema-400 font-mono font-normal">(13131313)</span></span>
-    </button>
-    <button id="dock-super-admin-btn" type="button" class="group flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-crema-400 to-crema-500 hover:from-crema-300 hover:to-crema-400 text-espresso-950 font-bold text-xs sm:text-sm shadow-2xl transition transform hover:scale-105" title="Open Super Admin Command Center (Password: 12121212)">
-      <svg class="w-4 h-4 text-espresso-950" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
-      <span>⚡ Super Admin <span class="text-[11px] text-espresso-900 font-mono font-semibold">(12121212)</span></span>
-    </button>
   </div>
 
   <!-- PASSCODE GATEWAY MODAL -->
@@ -1101,32 +1053,17 @@
         </div>
 
         <div id="auth-error-msg" class="hidden text-center text-xs text-rose-400 bg-rose-950/40 border border-rose-500/30 py-2 px-3 rounded-lg font-medium">
-          Incorrect passcode. Enter 13131313 for Data Portal or 12121212 for Super Admin.
+          Incorrect passcode. Please check your credentials and try again.
         </div>
 
         <button id="submit-passcode-btn" type="button" class="w-full py-3 rounded-xl bg-gradient-to-r from-crema-400 to-crema-500 hover:from-crema-300 hover:to-crema-400 text-espresso-950 font-bold text-sm shadow-lg transition">
           Unlock Portal ➔
         </button>
       </div>
-
-      <!-- Quick Password Helper Cards -->
-      <div class="border-t border-crema-400/20 pt-4 space-y-2">
-        <p class="text-[11px] text-center uppercase tracking-wider text-crema-400/80 font-semibold">Authorized Portals &amp; Passwords</p>
-        <div class="grid grid-cols-2 gap-2 text-xs">
-          <button type="button" id="quick-fill-data-pass-btn" class="p-2.5 rounded-xl glass-light border border-crema-400/20 hover:border-crema-400 text-left transition group">
-            <span class="block font-semibold text-crema-100 group-hover:text-crema-400">📊 Data Portal</span>
-            <span class="block text-[11px] font-mono text-emerald-400 font-semibold">Pass: 13131313</span>
-          </button>
-          <button type="button" id="quick-fill-admin-pass-btn" class="p-2.5 rounded-xl glass-light border border-crema-400/20 hover:border-crema-400 text-left transition group">
-            <span class="block font-semibold text-crema-100 group-hover:text-crema-400">⚡ Super Admin</span>
-            <span class="block text-[11px] font-mono text-amber-400 font-semibold">Pass: 12121212</span>
-          </button>
-        </div>
-      </div>
     </div>
   </div>
 
-  <!-- MODAL: DATA & ANALYTICS PORTAL (PASSWORD: 13131313) -->
+  <!-- MODAL: DATA & ANALYTICS PORTAL -->
   <div id="data-portal-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-5">
     <div class="glass-panel rounded-3xl max-w-6xl w-full max-h-[92vh] flex flex-col border border-crema-400/50 shadow-2xl overflow-hidden">
       <!-- Portal Top Header -->
@@ -1141,7 +1078,7 @@
                 Aroma Data &amp; Traffic Portal
               </h2>
               <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                Pass: 13131313
+                Authorized Session
               </span>
             </div>
             <p class="text-xs text-crema-300/80">
@@ -1483,7 +1420,7 @@
     </div>
   </div>
 
-  <!-- MODAL: SUPER ADMIN COMMAND CENTER (PASSWORD: 12121212) -->
+  <!-- MODAL: SUPER ADMIN COMMAND CENTER -->
   <div id="super-admin-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-5">
     <div class="glass-panel rounded-3xl max-w-6xl w-full max-h-[92vh] flex flex-col border border-crema-400/50 shadow-2xl overflow-hidden">
       <!-- Super Admin Top Header -->
@@ -1498,7 +1435,7 @@
                 Super Admin Command Center
               </h2>
               <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30">
-                Pass: 12121212
+                Admin Session
               </span>
             </div>
             <p class="text-xs text-crema-300/80">
@@ -3597,13 +3534,13 @@
 
         state.pendingTarget = target;
         if (target === "data") {
-          if (title) title.textContent = "Data Portal Gateway (Pass: 13131313)";
-          if (subtitle) subtitle.textContent = "Direct Localhost Access to Data Portal: Enter passcode 13131313 to track live visitor traffic, online orders and customer enquiries.";
-          input.placeholder = "Enter 13131313...";
+          if (title) title.textContent = "Data Portal Gateway";
+          if (subtitle) subtitle.textContent = "Enter your authorized passcode to access live visitor analytics, orders, and customer enquiries.";
+          input.placeholder = "Enter Passcode...";
         } else if (target === "admin") {
-          if (title) title.textContent = "Super Admin Authorization (Pass: 12121212)";
-          if (subtitle) subtitle.textContent = "Direct Localhost Access to Super Admin: Enter passcode 12121212 to manage cafe menu, hours, announcement banner and full content.";
-          input.placeholder = "Enter 12121212...";
+          if (title) title.textContent = "Super Admin Command Center";
+          if (subtitle) subtitle.textContent = "Enter your authorized administrative passcode to manage café operations.";
+          input.placeholder = "Enter Passcode...";
         } else {
           if (title) title.textContent = "The Aroma Security Gateway";
           if (subtitle) subtitle.textContent = "Please enter your authorized portal passcode to continue.";
@@ -3637,7 +3574,7 @@
               try { window.location.hash = "dataportal"; } catch (e) {}
             }
           }
-          showToast("Data Portal Unlocked (13131313)");
+          showToast("Data Portal Unlocked");
         } else if (code === "12121212") {
           sessionStorage.setItem("aroma_auth_role", "super_admin");
           state.authRole = "super_admin";
@@ -3653,11 +3590,11 @@
               try { window.location.hash = "superadmin"; } catch (e) {}
             }
           }
-          showToast("Super Admin Mode Active (12121212)");
+          showToast("Super Admin Mode Active");
         } else {
           if (error) {
             error.classList.remove("hidden");
-            error.textContent = "Invalid passcode. Please enter 13131313 for Data Portal or 12121212 for Super Admin.";
+            error.textContent = "Invalid passcode. Access denied.";
           }
         }
       }
@@ -4740,15 +4677,38 @@
         // 13. DATA PORTAL & SUPER ADMIN CONTROLLERS
         // ==========================================
 
-        // Gateway Passcode Trigger Buttons
-        ["dock-data-portal-btn", "top-data-portal-btn", "mobile-data-portal-btn"].forEach(function (id) {
+        // Gateway Passcode Trigger Buttons & Private Links
+        ["dock-data-portal-btn", "top-data-portal-btn", "mobile-data-portal-btn", "footer-staff-portal-btn"].forEach(function (id) {
           var el = document.getElementById(id);
-          if (el) el.addEventListener("click", handleDataPortalOpen);
+          if (el) {
+            el.addEventListener("click", function (e) {
+              e.preventDefault();
+              handleDataPortalOpen();
+            });
+          }
         });
 
         ["dock-super-admin-btn", "top-super-admin-btn", "mobile-super-admin-btn"].forEach(function (id) {
           var el = document.getElementById(id);
-          if (el) el.addEventListener("click", handleSuperAdminOpen);
+          if (el) {
+            el.addEventListener("click", function (e) {
+              e.preventDefault();
+              handleSuperAdminOpen();
+            });
+          }
+        });
+
+        // Secret Owner/Staff Keyboard Shortcuts:
+        // Ctrl + Shift + D: Launch Data & Analytics Portal
+        // Ctrl + Shift + A: Launch Super Admin Command Center
+        window.addEventListener("keydown", function (e) {
+          if (e.ctrlKey && e.shiftKey && (e.key === "D" || e.key === "d")) {
+            e.preventDefault();
+            handleDataPortalOpen();
+          } else if (e.ctrlKey && e.shiftKey && (e.key === "A" || e.key === "a")) {
+            e.preventDefault();
+            handleSuperAdminOpen();
+          }
         });
 
         var submitPasscodeBtn = document.getElementById("submit-passcode-btn");
@@ -4772,22 +4732,6 @@
         if (togglePassVis && passInput) {
           togglePassVis.addEventListener("click", function () {
             passInput.type = passInput.type === "password" ? "text" : "password";
-          });
-        }
-
-        var quickDataBtn = document.getElementById("quick-fill-data-pass-btn");
-        if (quickDataBtn && passInput) {
-          quickDataBtn.addEventListener("click", function () {
-            passInput.value = "13131313";
-            submitAuthPasscode();
-          });
-        }
-
-        var quickAdminBtn = document.getElementById("quick-fill-admin-pass-btn");
-        if (quickAdminBtn && passInput) {
-          quickAdminBtn.addEventListener("click", function () {
-            passInput.value = "12121212";
-            submitAuthPasscode();
           });
         }
 

@@ -177,7 +177,8 @@
         <a href="#why-us" class="hover:text-crema-400 transition-colors whitespace-nowrap">Why Us</a>
         <a href="#reviews" class="hover:text-crema-400 transition-colors whitespace-nowrap">Reviews</a>
         <a href="#gallery" class="hover:text-crema-400 transition-colors whitespace-nowrap">Gallery</a>
-        <a href="#location" class="hover:text-crema-400 transition-colors whitespace-nowrap">Location &amp; Hours</a>
+                <a href="#location" class="hover:text-crema-400 transition-colors whitespace-nowrap">Location &amp; Hours</a>
+        <button id="nav-track-order-btn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-crema-300 hover:text-crema-100 glass-light hover:border-crema-400/40 transition whitespace-nowrap"><span>📍 Track Order</span></button>
       </nav>
 
       <!-- Action Buttons (Order Online + Call + Table Inquiry + Mobile Menu Button) -->
@@ -223,6 +224,7 @@
       <a href="#reviews" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Customer Reviews (4.7★)</a>
       <a href="#gallery" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Gallery</a>
       <a href="#location" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-crema-100 hover:bg-crema-400/15">Location &amp; Contact</a>
+      <button id="mobile-track-order-btn" type="button" class="w-full text-left mobile-nav-link flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-crema-300 hover:bg-crema-400/15"><span>📍 Track Live Order</span><span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full border border-amber-400/30">Live Status</span></button>
       
       <div class="pt-3 flex flex-col gap-2.5 border-t border-crema-400/15">
         <button id="mobile-order-online-btn" type="button" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-bold text-sm shadow-lg shadow-black/40 border border-crema-300/40">
@@ -2255,7 +2257,28 @@
         
         <!-- STEP 1 VIEW: INTERACTIVE MENU CHOOSER -->
         <div id="order-step-menu" class="space-y-4">
-          <!-- Filter bar -->
+          <!-- Dietary Veg/Non-Veg Color Separator Bar -->
+          <div class="flex flex-wrap items-center justify-between gap-2.5 bg-espresso-900/80 p-3 rounded-2xl border border-crema-400/25">
+            <div class="flex items-center gap-2" id="order-diet-filter" role="radiogroup" aria-label="Dietary Option">
+              <span class="text-xs font-bold text-crema-300 hidden sm:inline">Select Diet:</span>
+              <button type="button" data-order-diet="all" class="order-diet-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-crema-400 text-espresso-950 shadow-md">
+                All (187)
+              </button>
+              <button type="button" data-order-diet="veg" class="order-diet-btn px-3 py-1.5 rounded-xl text-xs font-bold transition glass-light text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/40 flex items-center gap-1.5">
+                <span class="inline-flex items-center justify-center w-3.5 h-3.5 border border-emerald-500 p-0.5 rounded-xs bg-espresso-950"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span></span>
+                <span>🌱 100% Pure Veg</span>
+              </button>
+              <button type="button" data-order-diet="nonveg" class="order-diet-btn px-3 py-1.5 rounded-xl text-xs font-bold transition glass-light text-rose-400 hover:bg-rose-500/20 border border-rose-500/40 flex items-center gap-1.5">
+                <span class="inline-flex items-center justify-center w-3.5 h-3.5 border border-rose-500 p-0.5 rounded-xs bg-espresso-950"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span></span>
+                <span>🍗 Non-Veg Specials</span>
+              </button>
+            </div>
+            <div class="text-[11px] text-crema-400/80 font-medium">
+              <span id="order-results-count">187 dishes available</span>
+            </div>
+          </div>
+
+          <!-- Category filter bar & Search -->
           <div class="flex flex-wrap items-center justify-between gap-3 bg-espresso-900/60 p-3 rounded-2xl border border-crema-400/20">
             <div class="flex items-center gap-1.5 overflow-x-auto py-1" id="order-menu-cat-filters">
               <button type="button" data-order-cat="All" class="order-cat-btn px-3 py-1.5 rounded-xl bg-crema-400 text-espresso-950 font-bold text-xs transition">All (187)</button>
@@ -2380,6 +2403,75 @@
             <p class="text-xs text-crema-300 mt-1 max-w-md mx-auto">
               Your order has been recorded directly on our website and received by our kitchen staff at The Aroma Espresso Bar, Moonak.
             </p>
+          </div>
+
+          <!-- Live Order Tracker Progress Card -->
+          <div class="glass-panel rounded-2xl p-5 border border-crema-400/35 text-left max-w-lg mx-auto shadow-2xl relative overflow-hidden bg-espresso-900/95 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-crema-400/20">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-crema-100">Live Order Tracker</span>
+              </div>
+              <span id="tracker-live-status-pill" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30 font-mono">
+                🍳 Kitchen Preparing
+              </span>
+            </div>
+
+            <!-- 4-Step Tracker Flow -->
+            <div class="my-4 relative">
+              <!-- Horizontal Progress Bar Line -->
+              <div class="absolute left-6 right-6 top-4 -translate-y-1/2 h-1 bg-espresso-950 rounded-full overflow-hidden">
+                <div id="tracker-progress-bar-fill" class="h-full bg-gradient-to-r from-emerald-500 via-amber-400 to-crema-400 w-1/2 transition-all duration-700"></div>
+              </div>
+
+              <!-- Steps Grid -->
+              <div class="relative grid grid-cols-4 gap-1 text-center">
+                <!-- Step 1: Placed -->
+                <div class="flex flex-col items-center">
+                  <div id="track-step-icon-1" class="w-8 h-8 rounded-full bg-emerald-500 text-espresso-950 font-bold flex items-center justify-center text-xs shadow-md border-2 border-emerald-400">
+                    ✓
+                  </div>
+                  <span class="text-[10px] font-semibold text-emerald-300 mt-1.5 leading-tight">Order Placed</span>
+                  <span id="track-step-time-1" class="text-[9px] text-crema-400/80">Just now</span>
+                </div>
+
+                <!-- Step 2: In Kitchen -->
+                <div class="flex flex-col items-center">
+                  <div id="track-step-icon-2" class="w-8 h-8 rounded-full bg-crema-400 text-espresso-950 font-bold flex items-center justify-center text-xs shadow-md border-2 border-crema-300 animate-pulse">
+                    🍳
+                  </div>
+                  <span class="text-[10px] font-bold text-crema-100 mt-1.5 leading-tight">Kitchen Prep</span>
+                  <span class="text-[9px] text-amber-300">In Progress</span>
+                </div>
+
+                <!-- Step 3: Out for Delivery / Ready -->
+                <div class="flex flex-col items-center">
+                  <div id="track-step-icon-3" class="w-8 h-8 rounded-full bg-espresso-950 text-crema-400/60 font-bold flex items-center justify-center text-xs border-2 border-crema-400/20">
+                    🛵
+                  </div>
+                  <span id="track-step-label-3" class="text-[10px] font-medium text-crema-300/60 mt-1.5 leading-tight">Dispatched</span>
+                  <span class="text-[9px] text-crema-400/40">~15 Mins</span>
+                </div>
+
+                <!-- Step 4: Delivered -->
+                <div class="flex flex-col items-center">
+                  <div id="track-step-icon-4" class="w-8 h-8 rounded-full bg-espresso-950 text-crema-400/60 font-bold flex items-center justify-center text-xs border-2 border-crema-400/20">
+                    🎉
+                  </div>
+                  <span class="text-[10px] font-medium text-crema-300/60 mt-1.5 leading-tight">Delivered</span>
+                  <span class="text-[9px] text-crema-400/40">Enjoy Meal</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Status Detail Box -->
+            <div class="p-3 rounded-xl bg-espresso-950/80 border border-crema-400/20 flex items-start gap-3 text-xs">
+              <span class="text-xl">👨‍🍳</span>
+              <div>
+                <span class="font-bold text-crema-100 block" id="tracker-status-heading">Chef is preparing your fresh order</span>
+                <span class="text-crema-300/80 text-[11px]" id="tracker-status-desc">Handcrafted at The Aroma Espresso Bar, Jakhal Road, Moonak. Estimated delivery in 20-30 mins.</span>
+              </div>
+            </div>
           </div>
 
           <!-- Digital Receipt Box -->
@@ -4416,6 +4508,7 @@
         inquiryTray: loadState("aroma_tray_v1", []),
         orderCart: [],
         orderCategory: "All",
+        orderDiet: "all",
         orderSearch: "",
         currentOrderStep: 1,
         lastPlacedOrder: null,
@@ -6095,7 +6188,7 @@
           }
         }
 
-        function renderOrderModalMenu() {
+                function renderOrderModalMenu() {
           var grid = document.getElementById("order-menu-items-grid");
           if (!grid) return;
 
@@ -6105,11 +6198,24 @@
           var filtered = (state.menuItems || []).filter(function (it) {
             var matchCat = (cat === "All") || (it.category === cat);
             var matchQ = !q || it.name.toLowerCase().indexOf(q) !== -1 || (it.desc || "").toLowerCase().indexOf(q) !== -1;
-            return matchCat && matchQ;
+            
+            var matchDiet = true;
+            if (state.orderDiet === "veg") {
+              matchDiet = !isItemNonVeg(it);
+            } else if (state.orderDiet === "nonveg") {
+              matchDiet = isItemNonVeg(it);
+            }
+            return matchCat && matchQ && matchDiet;
           });
 
+          var countEl = document.getElementById("order-results-count");
+          if (countEl) {
+            var dietLabel = state.orderDiet === "veg" ? "Pure Veg" : (state.orderDiet === "nonveg" ? "Non-Veg" : "All Dishes");
+            countEl.textContent = filtered.length + " " + dietLabel + " available";
+          }
+
           if (filtered.length === 0) {
-            grid.innerHTML = '<div class="col-span-full glass-light rounded-2xl p-8 text-center text-crema-300">No dishes match your filter. Try another category or search.</div>';
+            grid.innerHTML = '<div class="col-span-full glass-light rounded-2xl p-8 text-center text-crema-300">No dishes match your filter. Try another category or dietary option.</div>';
             return;
           }
 
@@ -6117,24 +6223,39 @@
             var inCart = (state.orderCart || []).find(function (c) { return c.id === it.id; });
             var qty = inCart ? inCart.qty : 0;
             var numPrice = parsePrice(it.price);
+            var nonVeg = isItemNonVeg(it);
+
+            // Vibrant Color-Coded Veg / Non-Veg Styling
+            var dietBadge = nonVeg
+              ? '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-950/90 text-rose-300 border border-rose-500/50 shadow-sm"><span class="w-2 h-2 rounded-full bg-rose-500 inline-block"></span> Non-Veg</span>'
+              : '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-500/50 shadow-sm"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span> Pure Veg</span>';
+
+            var cardBorderClass = nonVeg
+              ? 'border-rose-500/30 hover:border-rose-500/70 bg-gradient-to-r from-rose-950/20 to-espresso-950/70'
+              : 'border-emerald-500/30 hover:border-emerald-500/70 bg-gradient-to-r from-emerald-950/20 to-espresso-950/70';
 
             var actionControls = (qty > 0)
-              ? ('<div class="flex items-center gap-1.5 bg-espresso-950 p-1 rounded-xl border border-crema-400/40">' +
+              ? ('<div class="flex items-center gap-1.5 bg-espresso-950 p-1 rounded-xl border border-crema-400/40 shadow-md">' +
                    '<button type="button" data-cart-action="decrease" data-id="' + it.id + '" class="w-7 h-7 rounded-lg glass-light text-crema-100 hover:bg-rose-500/20 flex items-center justify-center font-bold font-mono transition">-</button>' +
                    '<span class="w-6 text-center font-bold text-crema-100 font-mono text-xs">' + qty + '</span>' +
                    '<button type="button" data-cart-action="increase" data-id="' + it.id + '" class="w-7 h-7 rounded-lg bg-crema-400 text-espresso-950 hover:bg-crema-300 flex items-center justify-center font-bold font-mono transition">+</button>' +
                  '</div>')
-              : ('<button type="button" data-cart-action="add" data-id="' + it.id + '" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-bold text-xs transition shadow-sm">' +
+              : ('<button type="button" data-cart-action="add" data-id="' + it.id + '" class="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-bold text-xs transition shadow-sm">' +
                    '<span>+ Add</span>' +
                  '</button>');
 
             return (
-              '<div class="glass-light rounded-2xl p-3 border border-crema-400/20 hover:border-crema-400/40 transition flex items-center justify-between gap-3">' +
+              '<div class="rounded-2xl p-3 sm:p-3.5 border ' + cardBorderClass + ' transition flex items-center justify-between gap-3 shadow-md group">' +
                 '<div class="flex items-center gap-3 overflow-hidden">' +
-                  '<img src="' + it.image + '" alt="' + it.name.replace(/"/g, '&quot;') + '" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover bg-espresso-900 border border-crema-400/20 shrink-0" />' +
+                  '<div class="relative shrink-0">' +
+                    '<img src="' + it.image + '" alt="' + (it.name || "").replace(/"/g, '&quot;') + '" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover bg-espresso-900 border border-crema-400/20" />' +
+                  '</div>' +
                   '<div class="min-w-0">' +
-                    '<span class="text-[10px] text-crema-400 font-semibold uppercase tracking-wider block truncate">' + it.category + '</span>' +
-                    '<h4 class="font-editorial text-sm sm:text-base font-bold text-crema-100 truncate">' + it.name + '</h4>' +
+                    '<div class="flex items-center gap-2 mb-1 flex-wrap">' +
+                      dietBadge +
+                      '<span class="text-[9px] text-crema-400/80 font-semibold uppercase tracking-wider truncate">' + it.category + '</span>' +
+                    '</div>' +
+                    '<h4 class="font-editorial text-sm sm:text-base font-bold text-crema-100 truncate group-hover:text-crema-300 transition-colors">' + it.name + '</h4>' +
                     '<p class="text-[11px] text-crema-300/80 line-clamp-1 mt-0.5">' + (it.desc || "") + '</p>' +
                     '<div class="text-xs sm:text-sm font-bold font-mono text-crema-400 mt-1">₹' + numPrice + '</div>' +
                   '</div>' +
@@ -6293,6 +6414,7 @@
           if (!Array.isArray(state.orders)) state.orders = [];
           state.orders.unshift(orderObj);
           saveState("aroma_orders_v1", state.orders);
+          localStorage.setItem("aroma_last_order", JSON.stringify(orderObj));
           trackEvent("order_submitted");
 
           // Keep reference for receipt & optional WhatsApp send
@@ -6349,6 +6471,209 @@
           var waNumber = ((state.siteContent && state.siteContent.whatsapp) || "+91 73475 19755").replace(/[^0-9]/g, "");
           var waUrl = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(lines.join("\n"));
           window.open(waUrl, "_blank", "noopener,noreferrer");
+        }
+
+        // ==========================================
+        // LIVE ORDER TRACKING CONTROLLER
+        // ==========================================
+        function getStageFromOrderStatus(status) {
+          var s = (status || "").toLowerCase();
+          if (s.indexOf("deliver") !== -1 || s.indexOf("complete") !== -1) return 4;
+          if (s.indexOf("dispatch") !== -1 || s.indexOf("way") !== -1 || s.indexOf("ready") !== -1) return 3;
+          if (s.indexOf("prep") !== -1 || s.indexOf("kitchen") !== -1) return 2;
+          return 1; // Default: Placed/New
+        }
+
+        function renderTrackerUI(containerEl, order) {
+          if (!containerEl || !order) return;
+          var stage = getStageFromOrderStatus(order.status || "New");
+          var progressPct = stage === 4 ? "100%" : (stage === 3 ? "75%" : (stage === 2 ? "45%" : "15%"));
+          
+          var stagePillText = stage === 4 ? "🎉 Delivered" : (stage === 3 ? "🛵 Out for Delivery / Ready" : (stage === 2 ? "🍳 Kitchen Preparing" : "📝 Order Confirmed"));
+          var stagePillClass = stage === 4 ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40" : (stage === 3 ? "bg-blue-500/20 text-blue-300 border-blue-500/40" : "bg-amber-500/20 text-amber-300 border-amber-400/40");
+
+          var icon1 = stage >= 1 ? 'bg-emerald-500 text-espresso-950 font-bold border-2 border-emerald-400 shadow-md' : 'bg-espresso-950 text-crema-400/60 border-2 border-crema-400/20';
+          var icon2 = stage >= 2 ? (stage === 2 ? 'bg-crema-400 text-espresso-950 font-bold border-2 border-crema-300 animate-pulse shadow-md' : 'bg-emerald-500 text-espresso-950 font-bold border-2 border-emerald-400 shadow-md') : 'bg-espresso-950 text-crema-400/60 border-2 border-crema-400/20';
+          var icon3 = stage >= 3 ? (stage === 3 ? 'bg-blue-400 text-espresso-950 font-bold border-2 border-blue-300 animate-pulse shadow-md' : 'bg-emerald-500 text-espresso-950 font-bold border-2 border-emerald-400 shadow-md') : 'bg-espresso-950 text-crema-400/60 border-2 border-crema-400/20';
+          var icon4 = stage >= 4 ? 'bg-emerald-500 text-espresso-950 font-bold border-2 border-emerald-400 shadow-md' : 'bg-espresso-950 text-crema-400/60 border-2 border-crema-400/20';
+
+          containerEl.innerHTML = 
+            '<div class="glass-light rounded-2xl p-4 sm:p-5 border border-crema-400/30 space-y-4 text-left">' +
+              '<div class="flex items-center justify-between pb-3 border-b border-crema-400/15">' +
+                '<div>' +
+                  '<span class="text-[10px] text-crema-400 font-semibold uppercase block">Order Reference</span>' +
+                  '<span class="text-lg font-mono font-bold text-crema-100">' + order.id + '</span>' +
+                '</div>' +
+                '<span class="px-3 py-1 rounded-full text-xs font-bold border font-mono ' + stagePillClass + '">' + stagePillText + '</span>' +
+              '</div>' +
+
+              '<!-- Visual Step Progress -->' +
+              '<div class="my-4 relative">' +
+                '<div class="absolute left-6 right-6 top-4 -translate-y-1/2 h-1 bg-espresso-950 rounded-full overflow-hidden">' +
+                  '<div class="h-full bg-gradient-to-r from-emerald-500 via-amber-400 to-crema-400 transition-all duration-700" style="width: ' + progressPct + '"></div>' +
+                '</div>' +
+                '<div class="relative grid grid-cols-4 gap-1 text-center">' +
+                  '<div class="flex flex-col items-center">' +
+                    '<div class="w-8 h-8 rounded-full ' + icon1 + ' flex items-center justify-center text-xs">✓</div>' +
+                    '<span class="text-[10px] font-semibold text-crema-200 mt-1.5 leading-tight">Confirmed</span>' +
+                  '</div>' +
+                  '<div class="flex flex-col items-center">' +
+                    '<div class="w-8 h-8 rounded-full ' + icon2 + ' flex items-center justify-center text-xs">🍳</div>' +
+                    '<span class="text-[10px] font-semibold text-crema-200 mt-1.5 leading-tight">Cooking</span>' +
+                  '</div>' +
+                  '<div class="flex flex-col items-center">' +
+                    '<div class="w-8 h-8 rounded-full ' + icon3 + ' flex items-center justify-center text-xs">🛵</div>' +
+                    '<span class="text-[10px] font-semibold text-crema-200 mt-1.5 leading-tight">Out / Ready</span>' +
+                  '</div>' +
+                  '<div class="flex flex-col items-center">' +
+                    '<div class="w-8 h-8 rounded-full ' + icon4 + ' flex items-center justify-center text-xs">🎉</div>' +
+                    '<span class="text-[10px] font-semibold text-crema-200 mt-1.5 leading-tight">Delivered</span>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+
+              '<!-- Details Summary -->' +
+              '<div class="p-3 rounded-xl bg-espresso-950/80 border border-crema-400/20 text-xs space-y-1.5">' +
+                '<div class="flex justify-between"><span class="text-crema-400">Customer:</span><span class="font-semibold text-crema-100">' + order.customer + ' (' + order.phone + ')</span></div>' +
+                '<div class="flex justify-between"><span class="text-crema-400">Fulfillment:</span><span class="text-crema-100">' + order.type + '</span></div>' +
+                '<div class="flex justify-between"><span class="text-crema-400">Address / Location:</span><span class="text-crema-100 truncate max-w-[200px]">' + order.address + '</span></div>' +
+                '<div class="flex justify-between"><span class="text-crema-400">Items:</span><span class="text-crema-200 truncate max-w-[200px]">' + order.items + '</span></div>' +
+                '<div class="flex justify-between pt-1 border-t border-crema-400/15"><span class="font-bold text-crema-300">Total:</span><span class="font-bold font-mono text-crema-400">' + order.amount + '</span></div>' +
+              '</div>' +
+
+              '<!-- Action Buttons -->' +
+              '<div class="flex flex-wrap items-center justify-center gap-2.5 pt-1">' +
+                '<a href="tel:+917347519755" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl glass-light hover:bg-crema-400 hover:text-espresso-950 text-crema-100 text-xs font-semibold border border-crema-400/30 transition">' +
+                  '<span>📞 Call Kitchen (+91 73475 19755)</span>' +
+                '</a>' +
+                '<button type="button" onclick="refreshLiveOrderStatus(\'' + order.id + '\')" class="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 text-xs font-bold transition shadow-sm">' +
+                  '<span>🔄 Refresh Status</span>' +
+                '</button>' +
+              '</div>' +
+            '</div>';
+        }
+
+        window.refreshLiveOrderStatus = function(orderId) {
+          var allOrders = state.orders || [];
+          var found = allOrders.find(function(o) { return o.id === orderId; });
+          if (!found) {
+            try {
+              var lastOrd = JSON.parse(localStorage.getItem("aroma_last_order") || "null");
+              if (lastOrd && lastOrd.id === orderId) found = lastOrd;
+            } catch(e) {}
+          }
+          var container = document.getElementById("standalone-tracker-result");
+          if (found && container) {
+            renderTrackerUI(container, found);
+            showToast("Order status refreshed!");
+          } else {
+            showToast("Status updated.");
+          }
+        };
+
+        function openTrackOrderModal(prefillId) {
+          var modal = document.getElementById("track-order-modal");
+          if (!modal) return;
+          modal.classList.remove("hidden");
+
+          var searchInput = document.getElementById("track-order-search-input");
+          var container = document.getElementById("standalone-tracker-result");
+          
+          var targetId = prefillId;
+          if (!targetId) {
+            try {
+              var last = JSON.parse(localStorage.getItem("aroma_last_order") || "null");
+              if (last && last.id) targetId = last.id;
+            } catch(e) {}
+          }
+
+          if (targetId && searchInput) {
+            searchInput.value = targetId;
+          }
+
+          if (targetId && container) {
+            var found = (state.orders || []).find(function(o) { 
+              return o.id.toLowerCase() === targetId.toLowerCase() || (o.phone && o.phone.indexOf(targetId) !== -1); 
+            });
+            if (!found) {
+              try {
+                var lastOrd = JSON.parse(localStorage.getItem("aroma_last_order") || "null");
+                if (lastOrd && (lastOrd.id === targetId || (lastOrd.phone && lastOrd.phone.indexOf(targetId) !== -1))) found = lastOrd;
+              } catch(e) {}
+            }
+            if (found) {
+              renderTrackerUI(container, found);
+            } else {
+              container.innerHTML = '<div class="glass-light rounded-xl p-4 text-center text-xs text-crema-300">Enter your Order ID (e.g. ORD-1234) or Phone number above to check live tracking.</div>';
+            }
+          } else if (container) {
+            container.innerHTML = '<div class="glass-light rounded-xl p-4 text-center text-xs text-crema-300">Enter your Order ID (e.g. ORD-1234) or Phone number above to check live tracking.</div>';
+          }
+        }
+
+        function closeTrackOrderModal() {
+          var modal = document.getElementById("track-order-modal");
+          if (modal) modal.classList.add("hidden");
+        }
+
+        // Order Modal Dietary Filter Buttons (All, Pure Veg, Non-Veg)
+        var orderDietContainer = document.getElementById("order-diet-filter");
+        if (orderDietContainer) {
+          orderDietContainer.addEventListener("click", function (e) {
+            var btn = e.target.closest(".order-diet-btn");
+            if (!btn) return;
+            state.orderDiet = btn.getAttribute("data-order-diet") || "all";
+            orderDietContainer.querySelectorAll(".order-diet-btn").forEach(function (b) {
+              var active = b.getAttribute("data-order-diet") === state.orderDiet;
+              if (b.getAttribute("data-order-diet") === "veg") {
+                b.className = active
+                  ? "order-diet-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-emerald-500 text-espresso-950 shadow-md flex items-center gap-1.5"
+                  : "order-diet-btn px-3 py-1.5 rounded-xl text-xs font-bold transition glass-light text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/40 flex items-center gap-1.5";
+              } else if (b.getAttribute("data-order-diet") === "nonveg") {
+                b.className = active
+                  ? "order-diet-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-rose-600 text-white shadow-md flex items-center gap-1.5"
+                  : "order-diet-btn px-3 py-1.5 rounded-xl text-xs font-bold transition glass-light text-rose-400 hover:bg-rose-500/20 border border-rose-500/40 flex items-center gap-1.5";
+              } else {
+                b.className = active
+                  ? "order-diet-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-crema-400 text-espresso-950 shadow-md"
+                  : "order-diet-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition glass-light text-crema-200 hover:border-crema-400/40";
+              }
+            });
+            renderOrderModalMenu();
+          });
+        }
+
+        // Track Order Navigation & Search Buttons
+        var navTrackBtn = document.getElementById("nav-track-order-btn");
+        if (navTrackBtn) {
+          navTrackBtn.addEventListener("click", function() { openTrackOrderModal(); });
+        }
+        var mobTrackBtn = document.getElementById("mobile-track-order-btn");
+        if (mobTrackBtn) {
+          mobTrackBtn.addEventListener("click", function() { 
+            var mobDrawer = document.getElementById("mobile-menu-drawer");
+            if (mobDrawer) mobDrawer.classList.add("hidden");
+            openTrackOrderModal(); 
+          });
+        }
+        var closeTrackModalBtn = document.getElementById("close-track-order-modal-btn");
+        if (closeTrackModalBtn) {
+          closeTrackModalBtn.addEventListener("click", function() { closeTrackOrderModal(); });
+        }
+        var trackSearchBtn = document.getElementById("track-order-search-btn");
+        var trackSearchInput = document.getElementById("track-order-search-input");
+        if (trackSearchBtn && trackSearchInput) {
+          trackSearchBtn.addEventListener("click", function() {
+            var val = trackSearchInput.value.trim();
+            if (!val) { alert("Please enter Order ID or phone number."); return; }
+            openTrackOrderModal(val);
+          });
+          trackSearchInput.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+              var val = trackSearchInput.value.trim();
+              if (val) openTrackOrderModal(val);
+            }
+          });
         }
 
         // Setup Category Filter Buttons in Order Modal
@@ -6695,6 +7020,7 @@
             if (!targetOrder) return;
             targetOrder.status = select.value;
             saveState("aroma_orders_v1", state.orders);
+          localStorage.setItem("aroma_last_order", JSON.stringify(orderObj));
             renderOrdersTable();
             renderDataPortalKPIs();
             showToast("Order " + orderId + " marked as " + select.value);
@@ -6723,6 +7049,7 @@
               if (confirm("Delete order " + orderId + "?")) {
                 state.orders = state.orders.filter(function (o) { return o.id !== orderId; });
                 saveState("aroma_orders_v1", state.orders);
+          localStorage.setItem("aroma_last_order", JSON.stringify(orderObj));
                 renderOrdersTable();
                 renderDataPortalKPIs();
                 showToast("Order " + orderId + " deleted.");
@@ -6861,6 +7188,7 @@
             }
 
             saveState("aroma_orders_v1", state.orders);
+          localStorage.setItem("aroma_last_order", JSON.stringify(orderObj));
             orderManageModal.classList.add("hidden");
             renderOrdersTable();
             renderDataPortalKPIs();
@@ -7446,5 +7774,38 @@
       });
     })();
   </script>
+  <!-- STANDALONE TRACK ORDER MODAL -->
+  <div id="track-order-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso-950/85 backdrop-blur-md hidden">
+    <div class="glass-panel w-full max-w-lg rounded-3xl border border-crema-400/35 shadow-2xl p-6 sm:p-7 relative overflow-hidden bg-espresso-900/95 space-y-5 animate-scale-in">
+      <div class="flex items-center justify-between border-b border-crema-400/20 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-crema-400/20 text-crema-400 flex items-center justify-center text-xl font-bold">
+            📍
+          </div>
+          <div>
+            <h3 class="font-editorial text-2xl font-bold text-crema-100">Track Your Order</h3>
+            <span class="text-xs text-crema-400">The Aroma Espresso Bar • Moonak</span>
+          </div>
+        </div>
+        <button id="close-track-order-modal-btn" type="button" class="w-8 h-8 rounded-full glass-light hover:bg-rose-500/20 text-crema-200 hover:text-rose-200 flex items-center justify-center transition">✕</button>
+      </div>
+
+      <!-- Search Input Box -->
+      <div class="space-y-2">
+        <label class="block text-xs font-semibold uppercase tracking-wider text-crema-300">Enter Order ID or Phone Number</label>
+        <div class="flex gap-2">
+          <input id="track-order-search-input" type="text" placeholder="e.g. ORD-1234 or 9815011223" class="flex-1 px-4 py-2.5 rounded-xl bg-espresso-950 border border-crema-400/30 text-sm text-crema-100 focus:outline-none focus:border-crema-400 font-mono" />
+          <button id="track-order-search-btn" type="button" class="px-5 py-2.5 rounded-xl bg-crema-400 hover:bg-crema-300 text-espresso-950 font-bold text-xs sm:text-sm transition shadow-md">
+            Track
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Tracking Result Container -->
+      <div id="standalone-tracker-result" class="space-y-4">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
 </body>
 </html>
